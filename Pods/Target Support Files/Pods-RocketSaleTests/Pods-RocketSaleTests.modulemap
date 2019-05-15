@@ -1,0 +1,6 @@
+framework module Pods_RocketSaleTests {
+  umbrella header "Pods-RocketSaleTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

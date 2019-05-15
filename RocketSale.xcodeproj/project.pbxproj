@@ -37,6 +37,7 @@
 		090F8F85228BF014007325B9 /* ProductDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F84228BF014007325B9 /* ProductDB.swift */; };
 		090F8F87228BF024007325B9 /* TransactionsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F86228BF024007325B9 /* TransactionsDB.swift */; };
 		090F8F89228BF03A007325B9 /* FavoritesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F88228BF03A007325B9 /* FavoritesDB.swift */; };
+		090F8F90228BFB9B007325B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F8F228BFB9B007325B9 /* Constants.swift */; };
 		5087F20058D6635A0874A0AE /* Pods_RocketSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB391F459AD892B929DA1EF8 /* Pods_RocketSale.framework */; };
 		75878BFC3A70399F7C85D71B /* Pods_RocketSaleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCCA2A77776497000E2A0C4 /* Pods_RocketSaleTests.framework */; };
 		97FA4875EE353EFE7A9FC8D5 /* Pods_RocketSaleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6112ABFB2FB7A67ECB1680E /* Pods_RocketSaleUITests.framework */; };
@@ -96,6 +97,7 @@
 		090F8F84228BF014007325B9 /* ProductDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDB.swift; sourceTree = "<group>"; };
 		090F8F86228BF024007325B9 /* TransactionsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDB.swift; sourceTree = "<group>"; };
 		090F8F88228BF03A007325B9 /* FavoritesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDB.swift; sourceTree = "<group>"; };
+		090F8F8F228BFB9B007325B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		32A306AB73161D1B3122D270 /* Pods-RocketSaleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A92028849C59BA7C9D69CFD /* Pods-RocketSaleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleTests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleTests/Pods-RocketSaleTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0370994583E1C81DEB67504 /* Pods-RocketSaleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.debug.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		090F8EDE228BD68D007325B9 /* RocketSale */ = {
 			isa = PBXGroup;
 			children = (
+				090F8F8E228BFB86007325B9 /* Constants */,
 				090F8F13228BDB6B007325B9 /* Storyboards */,
 				090F8F0D228BDADE007325B9 /* Models */,
 				090F8F0E228BDAF3007325B9 /* Views */,
@@ -571,6 +574,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		090F8F8E228BFB86007325B9 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				090F8F8F228BFB9B007325B9 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		6F7F0B2D02112C0731F4EA1D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,6 +838,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				090F8F3A228BE299007325B9 /* SignupViewController.swift in Sources */,
+				090F8F90228BFB9B007325B9 /* Constants.swift in Sources */,
 				090F8F5E228BE3A9007325B9 /* SellItemViewController.swift in Sources */,
 				090F8EE0228BD68D007325B9 /* AppDelegate.swift in Sources */,
 				090F8F64228BE4DC007325B9 /* BaseModel.swift in Sources */,

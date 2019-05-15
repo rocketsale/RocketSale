@@ -10,6 +10,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="GAa-id-dNd">
+            <objects>
+                <viewController id="CnZ-Qj-giz" customClass="LoginViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FFn-hd-t6W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10M-fi-GfK">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oPg-3y-2j8"/>
+                    </view>
+                    <connections>
+                        <segue destination="GqB-90-i3Y" kind="show" identifier="loginToHome" id="UKF-jG-fxs"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loginToSignup" id="TtP-ro-EQX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K61-8d-M4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1498" y="115"/>
+        </scene>
         <!--Signup View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -33,7 +61,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="eQq-Af-vgj" kind="show" id="Oz9-X8-0IH"/>
+                        <segue destination="eQq-Af-vgj" kind="show" identifier="loginToAccountInfo" id="Oz9-X8-0IH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -63,7 +91,7 @@
                         <viewLayoutGuide key="safeArea" id="bLQ-P8-CFl"/>
                     </view>
                     <connections>
-                        <segue destination="GqB-90-i3Y" kind="show" id="8y9-Xw-KmQ"/>
+                        <segue destination="GqB-90-i3Y" kind="show" identifier="accountInfoToHome" id="8y9-Xw-KmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWp-lH-mVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,4 +159,7 @@
             <point key="canvasLocation" x="1972" y="2669"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="UKF-jG-fxs"/>
+    </inferredMetricsTieBreakers>
 </document>

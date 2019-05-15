@@ -77,4 +77,4 @@ The application connects buyers and sellers located in population dense areas (c
 * Profile screen -> Login screen on logout
 
 ## Wireframes
-[TODO]
+![](https://i.imgur.com/KOjQfIE.jpg)

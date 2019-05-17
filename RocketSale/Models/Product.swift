@@ -14,6 +14,9 @@ class Product: PFObject, PFSubclassing {
     @NSManaged var blurb: String?
     @NSManaged var price: Double
     @NSManaged var picture: PFFileObject?
+    @NSManaged var isPurchased: Bool
+    @NSManaged var purchaser: User?
+    @NSManaged var favoritedUsers: [User]?
     
     static func parseClassName() -> String {
         return "Product"

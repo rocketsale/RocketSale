@@ -14,6 +14,7 @@ class ProductFeedViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    //MARK: Database interaction methods
     func getRecentProducts() {
         ProductDBHelper().getMostRecentProducts(limit: 20) { (error, products) in
             if let error = error {
@@ -21,6 +22,17 @@ class ProductFeedViewController: UIViewController {
             } else {
                 let product = products![0].blurb
                 print(product)
+            }
+        }
+    }
+    
+    func purchaseProduct(objectId: String) {
+        ProductDBHelper().purchaseProduct(objectId: objectId) { (error, product) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print(product)
+                print("saved new product info")
             }
         }
     }

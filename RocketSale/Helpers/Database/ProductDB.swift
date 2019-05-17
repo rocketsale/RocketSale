@@ -11,6 +11,7 @@ import Parse
 
 class ProductDBHelper {
     
+    //MARK: Create methods
     func createNewProduct(name: String, blurb: String, price: Double, picture: PFFileObject?, completion: @escaping ((_ error: Error?) -> Void)) {
         let newProduct = Product()
         newProduct.name = name
@@ -26,6 +27,7 @@ class ProductDBHelper {
         }
     }
     
+    //MARK: Read methods
     func getMostRecentProducts(limit: Int, completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
         let query = Product.query()
         query?.addDescendingOrder("createdAt")
@@ -35,6 +37,27 @@ class ProductDBHelper {
                 completion(error, nil)
             } else if let products = products as! [Product]? {
                 completion(nil, products)
+            }
+        })
+    }
+    
+    //MARK: Update methods
+    func purchaseProduct(objectId: String, completion: @escaping ((_ error: Error?, _ products: Product?) -> Void)) {
+        let query = Product.query()
+        query?.whereKey("objectId", equalTo: objectId)
+        query?.getFirstObjectInBackground(block: { (product, error) in
+            if let error = error {
+                completion(error, nil)
+            } else if let product = product as! Product? {
+                product.isPurchased = true
+                product.purchaser = PFUser.current() as! User
+                product.saveInBackground(block: { (success, error) in
+                    if let error = error {
+                        completion(error, nil)
+                    } else {
+                        completion(nil, product)
+                    }
+                })
             }
         })
     }

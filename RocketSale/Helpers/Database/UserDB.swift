@@ -20,10 +20,8 @@ class UserDBHelper {
          newUser.signUpInBackground { (success, error) in
             if let error = error {
                 completion(error)
-                print(error.localizedDescription)
             } else {
                 completion(nil)
-                print("new user created")
             }
         }
     }

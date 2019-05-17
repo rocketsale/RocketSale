@@ -12,19 +12,16 @@ class ProductFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getRecentProducts() {
+        ProductDBHelper().getMostRecentProducts(limit: 20) { (error, products) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                let product = products![0].blurb
+                print(product)
+            }
+        }
     }
-    */
-
 }

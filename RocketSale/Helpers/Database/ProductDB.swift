@@ -41,6 +41,18 @@ class ProductDBHelper {
         })
     }
     
+    func getProductById(objectId: String, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
+        let query = Product.query()
+        query?.whereKey("objectId", equalTo: objectId)
+        query?.getFirstObjectInBackground(block: { (product, error) in
+            if let error = error {
+                completion(error, nil)
+            } else if let product = product as! Product? {
+                completion(nil, product)
+            }
+        })
+    }
+    
     //MARK: Update methods
     func purchaseProduct(objectId: String, completion: @escaping ((_ error: Error?, _ products: Product?) -> Void)) {
         let query = Product.query()
@@ -60,5 +72,9 @@ class ProductDBHelper {
                 })
             }
         })
+    }
+    
+    func favoriteProduct() {
+        
     }
 }

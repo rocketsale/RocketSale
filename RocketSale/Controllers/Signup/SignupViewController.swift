@@ -13,6 +13,14 @@ class SignupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ProductDBHelper().createNewProduct(name: "book", blurb: "very entertaining", price: 10.50, picture: nil, tags: nil) {
+            error in
+            if let error = error {
+                print(error)
+            } else {
+                print("yep saved a new product")
+            }
+        }
     }
     
     func signUpNewUser() {

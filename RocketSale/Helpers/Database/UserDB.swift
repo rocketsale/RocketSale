@@ -27,9 +27,9 @@ class UserDBHelper {
     }
     
     // MARK: Read methods
-    func getUser(username: String, completion: @escaping ((_ error: Error?, _ user: User?) -> Void)) {
+    func getUser(email: String, completion: @escaping ((_ error: Error?, _ user: User?) -> Void)) {
         let query = User.query()
-        query?.whereKey("username", equalTo: username)
+        query?.whereKey("email", equalTo: email)
         query?.getFirstObjectInBackground(block: { (user, error) in
             if let error = error {
                 completion(error, nil)
@@ -40,7 +40,7 @@ class UserDBHelper {
     }
     
     // MARK: Update methods
-    func initializeUserAccountInformation(email: String, description: String, interests: [String], profilePicture: PFFileObject?, completion: @escaping ((_ error: Error?) -> Void)) {
+    func initializeUserAccountInformation(email: String, phoneNumber: String, description: String, interests: [String], profilePicture: PFFileObject?, completion: @escaping ((_ error: Error?) -> Void)) {
         let query = User.query()
         query?.whereKey("email", equalTo: email)
         query?.getFirstObjectInBackground(block: { (user, error) in
@@ -48,10 +48,12 @@ class UserDBHelper {
                 completion(error)
             } else {
                 let user = user as? User
+                user?.phoneNumber = phoneNumber
                 user?.profileDescription = description
                 user?.interests = interests
                 user?.profilePicture = profilePicture
                 user?.numberOfItemsBought = 0
+                user?.numberOfItemsUpForSale = 0
                 user?.numberOfItemsSold = 0
                 user?.saveInBackground(block: { (success, error) in
                     if let error = error {

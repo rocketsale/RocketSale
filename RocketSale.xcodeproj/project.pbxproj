@@ -36,10 +36,11 @@
 		090F8F83228BF002007325B9 /* BaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F82228BF002007325B9 /* BaseDB.swift */; };
 		090F8F85228BF014007325B9 /* ProductDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F84228BF014007325B9 /* ProductDB.swift */; };
 		090F8F87228BF024007325B9 /* TransactionsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F86228BF024007325B9 /* TransactionsDB.swift */; };
-		090F8F89228BF03A007325B9 /* FavoritesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F88228BF03A007325B9 /* FavoritesDB.swift */; };
 		090F8F90228BFB9B007325B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F8F228BFB9B007325B9 /* Constants.swift */; };
 		090F8F92228E4B0E007325B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F91228E4B0E007325B9 /* User.swift */; };
 		090F8F94228E5764007325B9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F93228E5764007325B9 /* Product.swift */; };
+		090F8F9622911CE5007325B9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F9522911CE5007325B9 /* ProductCell.swift */; };
+		090F8F982291382C007325B9 /* FavoritesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F972291382C007325B9 /* FavoritesDB.swift */; };
 		5087F20058D6635A0874A0AE /* Pods_RocketSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB391F459AD892B929DA1EF8 /* Pods_RocketSale.framework */; };
 		75878BFC3A70399F7C85D71B /* Pods_RocketSaleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCCA2A77776497000E2A0C4 /* Pods_RocketSaleTests.framework */; };
 		97FA4875EE353EFE7A9FC8D5 /* Pods_RocketSaleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6112ABFB2FB7A67ECB1680E /* Pods_RocketSaleUITests.framework */; };
@@ -98,10 +99,11 @@
 		090F8F82228BF002007325B9 /* BaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDB.swift; sourceTree = "<group>"; };
 		090F8F84228BF014007325B9 /* ProductDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDB.swift; sourceTree = "<group>"; };
 		090F8F86228BF024007325B9 /* TransactionsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDB.swift; sourceTree = "<group>"; };
-		090F8F88228BF03A007325B9 /* FavoritesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDB.swift; sourceTree = "<group>"; };
 		090F8F8F228BFB9B007325B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		090F8F91228E4B0E007325B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		090F8F93228E5764007325B9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		090F8F9522911CE5007325B9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		090F8F972291382C007325B9 /* FavoritesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDB.swift; sourceTree = "<group>"; };
 		32A306AB73161D1B3122D270 /* Pods-RocketSaleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A92028849C59BA7C9D69CFD /* Pods-RocketSaleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleTests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleTests/Pods-RocketSaleTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0370994583E1C81DEB67504 /* Pods-RocketSaleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.debug.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -238,8 +240,8 @@
 				090F8F82228BF002007325B9 /* BaseDB.swift */,
 				090F8F7E228BEF57007325B9 /* UserDB.swift */,
 				090F8F84228BF014007325B9 /* ProductDB.swift */,
+				090F8F972291382C007325B9 /* FavoritesDB.swift */,
 				090F8F86228BF024007325B9 /* TransactionsDB.swift */,
-				090F8F88228BF03A007325B9 /* FavoritesDB.swift */,
 				090F8F80228BEF66007325B9 /* ProfileDB.swift */,
 			);
 			path = Database;
@@ -453,6 +455,7 @@
 		090F8F44228BE2EC007325B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				090F8F9522911CE5007325B9 /* ProductCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -860,10 +863,11 @@
 				090F8F42228BE2D9007325B9 /* LoginViewController.swift in Sources */,
 				090F8F83228BF002007325B9 /* BaseDB.swift in Sources */,
 				090F8F4A228BE311007325B9 /* ProfileViewController.swift in Sources */,
+				090F8F9622911CE5007325B9 /* ProductCell.swift in Sources */,
 				090F8F94228E5764007325B9 /* Product.swift in Sources */,
-				090F8F89228BF03A007325B9 /* FavoritesDB.swift in Sources */,
 				090F8F6A228BE54F007325B9 /* BaseView.swift in Sources */,
 				090F8F46228BE2F8007325B9 /* ProductFeedViewController.swift in Sources */,
+				090F8F982291382C007325B9 /* FavoritesDB.swift in Sources */,
 				090F8F85228BF014007325B9 /* ProductDB.swift in Sources */,
 				090F8F3E228BE2BE007325B9 /* AccountInformationViewController.swift in Sources */,
 				090F8F92228E4B0E007325B9 /* User.swift in Sources */,

@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
     }
     
     func getCurrentUserInformation() {
-        UserDBHelper().getUser(username: (PFUser.current()?.username)!) { (error, user) in
+        UserDBHelper().getUser(email: (PFUser.current()?.email)!) { (error, user) in
             if let error = error {
                 print(error.localizedDescription)
             } else {

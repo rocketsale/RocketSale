@@ -13,7 +13,7 @@ class AccountInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UserDBHelper().initializeUserAccountInformation(email: "rnluu@uci.edu", description: "yaboi", interests: ["stussy", "supreme"], profilePicture: nil) {
+        UserDBHelper().initializeUserAccountInformation(email: "rnluu@uci.edu", phoneNumber: "6262780357", description: "yaboi", interests: ["stussy", "supreme"], profilePicture: nil) {
             error in
             if let error = error {
                 print(error)

@@ -15,7 +15,7 @@ class SellItemViewController: UIViewController {
     }
     
     func createNewProductForSale() {
-        ProductDBHelper().createNewProduct(name: "rug", blurb: "super fulfyy", price: 6.20, picture: nil) {
+        ProductDBHelper().createNewProduct(name: "rug", blurb: "super fulfyy", price: 6.20, picture: nil, tags: nil) {
             error in
             if let error = error {
                 print(error)

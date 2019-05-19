@@ -12,12 +12,16 @@ import Parse
 class ProductDBHelper {
     
     //MARK: Create methods
-    func createNewProduct(name: String, blurb: String, price: Double, picture: PFFileObject?, completion: @escaping ((_ error: Error?) -> Void)) {
+    func createNewProduct(name: String, blurb: String, price: Double, picture: PFFileObject?, tags: [String]?, completion: @escaping ((_ error: Error?) -> Void)) {
         let newProduct = Product()
         newProduct.name = name
         newProduct.blurb = blurb
         newProduct.price = price
         newProduct.picture = picture
+        newProduct.tags = tags
+        if let user = PFUser.current() as! User? {
+            newProduct.seller = user
+        }
         newProduct.saveInBackground { (success, error) in
             if let error = error {
                 completion(error)
@@ -54,27 +58,85 @@ class ProductDBHelper {
     }
     
     //MARK: Update methods
-    func purchaseProduct(objectId: String, completion: @escaping ((_ error: Error?, _ products: Product?) -> Void)) {
-        let query = Product.query()
-        query?.whereKey("objectId", equalTo: objectId)
-        query?.getFirstObjectInBackground(block: { (product, error) in
+    func purchaseProduct(product: Product, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
+        let query = User.query()
+        query?.whereKey("email", equalTo: PFUser.current()?.email)
+        query?.getFirstObjectInBackground(block: { (user, error) in
             if let error = error {
                 completion(error, nil)
-            } else if let product = product as! Product? {
-                product.isPurchased = true
-                product.purchaser = PFUser.current() as! User
-                product.saveInBackground(block: { (success, error) in
+            } else if let user = user as! User? {
+                if user.purchasedProducts != nil {
+                    user.purchasedProducts?.append(product)
+                } else {
+                    user.purchasedProducts = [product]
+                }
+                user.saveInBackground(block: { (success, error) in
                     if let error = error {
                         completion(error, nil)
                     } else {
-                        completion(nil, product)
+                        let query = Product.query()
+                        query?.whereKey("objectId", equalTo: product.objectId!)
+                        query?.getFirstObjectInBackground(block: { (product, error) in
+                            if let error = error {
+                                completion(error, nil)
+                            } else if let product = product as! Product? {
+                                product.isPurchased = true
+                                product.purchaser = user
+                                product.saveInBackground(block: { (success, error) in
+                                    if let error = error {
+                                        completion(error, nil)
+                                    } else {
+                                        completion(nil, product)
+                                    }
+                                })
+                            }
+                        })
                     }
                 })
             }
         })
     }
     
-    func favoriteProduct() {
-        
+    func favoriteProduct(product: Product, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
+        let query = User.query()
+        query?.whereKey("email", equalTo: PFUser.current()?.email)
+        query?.getFirstObjectInBackground(block: { (user, error) in
+            if let error = error {
+                completion(error, nil)
+            } else if let user = user as! User? {
+                if user.favoritedProducts != nil {
+                    user.favoritedProducts?.append(product)
+                } else {
+                    user.favoritedProducts = [product]
+                }
+                user.saveInBackground(block: { (success, error) in
+                    if let error = error {
+                        completion(error, nil)
+                    } else {
+                        let prodQuery = Product.query()
+                        prodQuery?.whereKey("objectId", equalTo: product.objectId!)
+                        prodQuery?.includeKey("favoritedUser")
+                        prodQuery?.getFirstObjectInBackground(block: { (product, error) in
+                            if let error = error {
+                                completion(error, nil)
+                            } else if let product = product as! Product? {
+                                if product.favoritedUser != nil {
+                                    product.favoritedUser?.append(user)
+                                } else {
+                                    product.favoritedUser = [user]
+                                }
+                                product.saveInBackground(block: { (success, error) in
+                                    if let error = error {
+                                        completion(error, nil)
+                                    } else {
+                                        completion(nil, product)
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
     }
 }

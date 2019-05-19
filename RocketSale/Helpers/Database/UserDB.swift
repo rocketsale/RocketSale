@@ -11,6 +11,27 @@ import Parse
 
 class UserDBHelper {
     
+    //MARK: Auth methods
+    func signInUser(email: String, password: String, completion: @escaping ((_ error: Error?) -> Void)) {
+        PFUser.logInWithUsername(inBackground: email, password: password, block: { (user, error) in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        })
+    }
+    
+    func signOutUser(completion: @escaping ((_ error: Error?) -> Void)) {
+        PFUser.logOutInBackground { (error) in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
     // MARK: Create methods
     func createNewUser(email: String, password: String, completion: @escaping ((_ error: Error?) -> Void)) {
         let newUser = User()

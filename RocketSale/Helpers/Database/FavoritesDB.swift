@@ -14,7 +14,7 @@ class FavoritesDBHelper {
     //MARK: Create methods
     
     //MARK: Read methods
-    func getAllFavorites(completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
+    static func getAllFavorites(completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
         var products: [Product] = []
         
         let query = User.query()

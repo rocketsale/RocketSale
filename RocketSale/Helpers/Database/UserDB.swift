@@ -12,7 +12,7 @@ import Parse
 class UserDBHelper {
     
     //MARK: Auth methods
-    func signInUser(email: String, password: String, completion: @escaping ((_ error: Error?) -> Void)) {
+    static func signInUser(email: String, password: String, completion: @escaping ((_ error: Error?) -> Void)) {
         PFUser.logInWithUsername(inBackground: email, password: password, block: { (user, error) in
             if let error = error {
                 completion(error)
@@ -22,7 +22,7 @@ class UserDBHelper {
         })
     }
     
-    func signOutUser(completion: @escaping ((_ error: Error?) -> Void)) {
+    static func signOutUser(completion: @escaping ((_ error: Error?) -> Void)) {
         PFUser.logOutInBackground { (error) in
             if let error = error {
                 completion(error)
@@ -33,7 +33,7 @@ class UserDBHelper {
     }
     
     // MARK: Create methods
-    func createNewUser(email: String, password: String, completion: @escaping ((_ error: Error?) -> Void)) {
+    static func createNewUser(email: String, password: String, completion: @escaping ((_ error: Error?) -> Void)) {
         let newUser = User()
          newUser.username = email
          newUser.email = email
@@ -48,7 +48,7 @@ class UserDBHelper {
     }
     
     // MARK: Read methods
-    func getUser(email: String, completion: @escaping ((_ error: Error?, _ user: User?) -> Void)) {
+    static func getUser(email: String, completion: @escaping ((_ error: Error?, _ user: User?) -> Void)) {
         let query = User.query()
         query?.whereKey("email", equalTo: email)
         query?.getFirstObjectInBackground(block: { (user, error) in
@@ -61,7 +61,7 @@ class UserDBHelper {
     }
     
     // MARK: Update methods
-    func initializeUserAccountInformation(email: String, phoneNumber: String, description: String, interests: [String], profilePicture: PFFileObject?, completion: @escaping ((_ error: Error?) -> Void)) {
+    static func initializeUserAccountInformation(email: String, phoneNumber: String, description: String, interests: [String], profilePicture: PFFileObject?, completion: @escaping ((_ error: Error?) -> Void)) {
         let query = User.query()
         query?.whereKey("email", equalTo: email)
         query?.getFirstObjectInBackground(block: { (user, error) in

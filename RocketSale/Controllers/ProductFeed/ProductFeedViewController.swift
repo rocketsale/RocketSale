@@ -69,7 +69,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
 
     //MARK: Database interaction methods
     @objc func getRecentProducts() {
-        ProductDBHelper().getMostRecentProducts(limit: 20) { (error, products) in
+        ProductDBHelper.getMostRecentProducts(limit: 20) { (error, products) in
             if let error = error {
                 print(error.localizedDescription)
             } else if products != nil {
@@ -81,7 +81,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func purchaseProduct(product: Product, indexPath: IndexPath) {
-        ProductDBHelper().purchaseProduct(product: product) { (error, product) in
+        ProductDBHelper.purchaseProduct(product: product) { (error, product) in
             if error != nil {
                 print(error?.localizedDescription)
             } else if product != nil{
@@ -92,7 +92,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func favoriteProduct(product: Product, indexPath: IndexPath) {
-        ProductDBHelper().favoriteProduct(product: product) { (error, product) in
+        ProductDBHelper.favoriteProduct(product: product) { (error, product) in
             if let error = error {
                 print(error.localizedDescription)
             } else if product != nil {

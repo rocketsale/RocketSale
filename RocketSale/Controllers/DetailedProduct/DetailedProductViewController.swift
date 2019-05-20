@@ -16,7 +16,7 @@ class DetailedProductViewController: UIViewController {
     
     //MARK: Databse interaction methods
     func getProductInformation() {
-        ProductDBHelper().getProductById(objectId: "CKTrE8p9Bp") { (error, product) in
+        ProductDBHelper.getProductById(objectId: "CKTrE8p9Bp") { (error, product) in
             if let error = error {
                 print(error.localizedDescription)
             } else {

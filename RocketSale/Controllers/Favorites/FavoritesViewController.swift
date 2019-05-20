@@ -18,7 +18,7 @@ class FavoritesViewController: UIViewController {
     }
     
     func getFavoriteProducts() {
-        FavoritesDBHelper().getAllFavorites { (error, products) in
+        FavoritesDBHelper.getAllFavorites { (error, products) in
             if let error = error {
                 print(error.localizedDescription)
             } else if products != nil {

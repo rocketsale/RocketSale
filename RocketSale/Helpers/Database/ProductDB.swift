@@ -12,7 +12,7 @@ import Parse
 class ProductDBHelper {
     
     //MARK: Create methods
-    func createNewProduct(name: String, blurb: String, price: Double, picture: PFFileObject?, tags: [String]?, completion: @escaping ((_ error: Error?) -> Void)) {
+    static func createNewProduct(name: String, blurb: String, price: Double, picture: PFFileObject?, tags: [String]?, completion: @escaping ((_ error: Error?) -> Void)) {
         let newProduct = Product()
         newProduct.name = name
         newProduct.blurb = blurb
@@ -32,7 +32,7 @@ class ProductDBHelper {
     }
     
     //MARK: Read methods
-    func getMostRecentProducts(limit: Int, completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
+    static func getMostRecentProducts(limit: Int, completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
         let query = Product.query()
         query?.addDescendingOrder("createdAt")
         query?.limit = limit
@@ -45,7 +45,7 @@ class ProductDBHelper {
         })
     }
     
-    func getProductById(objectId: String, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
+    static func getProductById(objectId: String, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
         let query = Product.query()
         query?.whereKey("objectId", equalTo: objectId)
         query?.getFirstObjectInBackground(block: { (product, error) in
@@ -58,7 +58,7 @@ class ProductDBHelper {
     }
     
     //MARK: Update methods
-    func purchaseProduct(product: Product, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
+    static func purchaseProduct(product: Product, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
         let query = User.query()
         query?.whereKey("email", equalTo: PFUser.current()?.email)
         query?.getFirstObjectInBackground(block: { (user, error) in
@@ -97,7 +97,7 @@ class ProductDBHelper {
         })
     }
     
-    func favoriteProduct(product: Product, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
+    static func favoriteProduct(product: Product, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
         let query = User.query()
         query?.whereKey("email", equalTo: PFUser.current()?.email)
         query?.getFirstObjectInBackground(block: { (user, error) in

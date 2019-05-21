@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Mark: User Queries
     func getCurrentUserInformation() {
         UserDBHelper.getUser(email: (PFUser.current()?.email)!) { (error, user) in
             if let error = error {

@@ -7,24 +7,111 @@
 //
 
 import UIKit
+import Parse
 
-class ProductFeedViewController: UIViewController {
-
+class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
+    
+    @IBOutlet weak var productTableView: UITableView!
+    
+    let refreshControl = UIRefreshControl()
+    
+    var products: [Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        productTableView.delegate = self
+        productTableView.dataSource = self
+        getRecentProducts()
+        setupRefreshControl()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: Data reload methods
+    func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(getRecentProducts), for: .valueChanged)
+        productTableView.refreshControl = refreshControl
     }
-    */
+    
+    //MARK: TableView methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PrototypeCellNames.ProductFeedCell) as! ProductCell
+        cell.delegate = self
+        //cell.productImageView.image = products[indexPath.row].picture
+        cell.productName.text = products[indexPath.row].name
+        cell.productBlurb.text = products[indexPath.row].blurb
+        cell.productPrice.text = String(format: "$%.02f", products[indexPath.row].price)
+        if products[indexPath.row].isPurchased == true {
+            cell.buyButton.isHidden = true
+        } else {
+            cell.buyButton.isHidden = false
+        }
+        
+        if isProductFavorited(users: products[indexPath.row].favoritedUser) {
+            cell.favoriteButton.backgroundColor = UIColor.green
+        }
+        return cell
+    }
+    
+    func onBuyTap(cell: ProductCell) {
+        let indexPath = self.productTableView.indexPath(for: cell)!
+        let chosenProduct = products[indexPath.row]
+        purchaseProduct(product: chosenProduct, indexPath: indexPath)
+    }
+    
+    func onFavoriteTap(cell: ProductCell) {
+        let indexPath = self.productTableView.indexPath(for: cell)!
+        let chosenProduct = products[indexPath.row]
+        favoriteProduct(product: chosenProduct, indexPath: indexPath)
+    }
 
+    //MARK: Database interaction methods
+    @objc func getRecentProducts() {
+        ProductDBHelper.getMostRecentProducts(limit: 20) { (error, products) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if products != nil {
+                self.products = products!
+                self.productTableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+    
+    func purchaseProduct(product: Product, indexPath: IndexPath) {
+        ProductDBHelper.purchaseProduct(product: product) { (error, product) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else if product != nil{
+                self.products[indexPath.row] = product!
+                self.productTableView.reloadData()
+            }
+        }
+    }
+    
+    func favoriteProduct(product: Product, indexPath: IndexPath) {
+        ProductDBHelper.favoriteProduct(product: product) { (error, product) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if product != nil {
+                self.products[indexPath.row] = product!
+                self.productTableView.reloadData()
+            }
+        }
+    }
+    
+    //MARK: Helper methods
+    func isProductFavorited(users: [User]?) -> Bool {
+        if let users = users {
+            for user in users {
+                print(user)
+                if user.objectId! == PFUser.current()?.objectId! {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }

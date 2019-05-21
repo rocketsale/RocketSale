@@ -13,18 +13,13 @@ class AccountInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        UserDBHelper().initializeUserAccountInformation(email: "rnluu@uci.edu", phoneNumber: "6262780357", description: "yaboi", interests: ["stussy", "supreme"], profilePicture: nil) {
+            error in
+            if let error = error {
+                print(error)
+            } else {
+                print("we good")
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

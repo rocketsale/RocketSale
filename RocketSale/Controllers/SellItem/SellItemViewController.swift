@@ -12,6 +12,7 @@ class SellItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("sold item")
     }
     
     func createNewProductForSale() {

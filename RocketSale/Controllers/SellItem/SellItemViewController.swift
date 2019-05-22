@@ -7,22 +7,81 @@
 //
 
 import UIKit
+import AlamofireImage
+import Parse
 
-class SellItemViewController: UIViewController {
-
+class SellItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var productNameLabel: UITextField!
+    @IBOutlet weak var productPriceLabel: UITextField!
+    @IBOutlet weak var productBlurbLabel: UITextView!
+    @IBOutlet weak var productTagsLabel: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("sold item")
     }
     
-    func createNewProductForSale() {
-        ProductDBHelper.createNewProduct(name: "rug", blurb: "super fulfyy", price: 6.20, picture: nil, tags: nil) {
+    //MARK: Database interaction methods
+    func createNewProductForSale(name: String, blurb: String, price: Double, picture: PFFileObject?, tags: [String]?) {
+        ProductDBHelper.createNewProduct(name: name, blurb: blurb, price: price, picture: picture, tags: tags) {
             error in
             if let error = error {
                 print(error)
             } else {
+                self.dismiss(animated: true, completion: nil)
                 print("yep saved a new product")
             }
         }
+    }
+    
+    //MARK: Interactivity methods
+    @IBAction func onCancelTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onPostTap(_ sender: Any) {
+        let productName = productNameLabel.text!
+        let productBlurb = productBlurbLabel.text!
+        let productPrice = convertCurrencyToDouble(currency: productPriceLabel.text!)
+        let productTags = [productTagsLabel.text!]
+        let productImage = prepareProductImage()
+        createNewProductForSale(name: productName, blurb: productBlurb, price: productPrice, picture: productImage, tags: productTags)
+    }
+    
+    @IBAction func onImageTap(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            picker.sourceType = .camera
+        } else {
+            picker.sourceType = .photoLibrary
+        }
+        present(picker, animated: true, completion: nil)
+    }
+    
+    //ImagePicker methods
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = image.af_imageScaled(to: size)
+        productImageView.image = scaledImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Helper methods
+    func convertCurrencyToDouble(currency: String) -> Double {
+        let usLocale = Locale(identifier: "en_US")
+        let formatter = NumberFormatter()
+        formatter.locale = usLocale
+        let number = formatter.number(from: currency)
+        return number as! Double
+    }
+    
+    func prepareProductImage() -> PFFileObject {
+        let imageData = productImageView.image!.pngData()
+        let file = PFFileObject(data: imageData!)
+        return file!
     }
 }

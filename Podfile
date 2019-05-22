@@ -7,6 +7,7 @@ target 'RocketSale' do
 
   # Pods for RocketSale
   pod 'Parse'
+  pod 'AlamofireImage'
 
   target 'RocketSaleTests' do
     inherit! :search_paths

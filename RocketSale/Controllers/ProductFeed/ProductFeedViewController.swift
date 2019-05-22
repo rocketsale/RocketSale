@@ -25,6 +25,11 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         setupRefreshControl()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getRecentProducts()
+    }
+    
     //MARK: Data reload methods
     func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(getRecentProducts), for: .valueChanged)
@@ -43,6 +48,13 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         cell.productName.text = products[indexPath.row].name
         cell.productBlurb.text = products[indexPath.row].blurb
         cell.productPrice.text = String(format: "$%.02f", products[indexPath.row].price)
+        
+        if products[indexPath.row].picture != nil {
+            let urlString = products[indexPath.row].picture!.url!
+            let url = URL(string: urlString)
+            cell.productImageView.af_setImage(withURL: url!)
+        }
+        
         if products[indexPath.row].isPurchased == true {
             cell.buyButton.isHidden = true
         } else {
@@ -66,7 +78,11 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         let chosenProduct = products[indexPath.row]
         favoriteProduct(product: chosenProduct, indexPath: indexPath)
     }
-
+    
+    //MARK: Interactivity method
+    @IBAction func onSellTap(_ sender: Any) {
+    }
+    
     //MARK: Database interaction methods
     @objc func getRecentProducts() {
         ProductDBHelper.getMostRecentProducts(limit: 20) { (error, products) in

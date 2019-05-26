@@ -19,7 +19,15 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("sold item")
+        roundFieldCorners()
+    }
+    
+    //MARK: Styling methods
+    func roundFieldCorners() {
+        productBlurbLabel.layer.cornerRadius = 5
+        productBlurbLabel.layer.masksToBounds = true
+        productImageView.layer.cornerRadius = 5
+        productBlurbLabel.layer.masksToBounds = true
     }
     
     //MARK: Database interaction methods
@@ -41,12 +49,22 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func onPostTap(_ sender: Any) {
-        let productName = productNameLabel.text!
-        let productBlurb = productBlurbLabel.text!
-        let productPrice = convertCurrencyToDouble(currency: productPriceLabel.text!)
-        let productTags = [productTagsLabel.text!]
-        let productImage = prepareProductImage()
-        createNewProductForSale(name: productName, blurb: productBlurb, price: productPrice, picture: productImage, tags: productTags)
+        if validateFormInputs(name: productNameLabel.text!, blurb: productBlurbLabel.text!, priceString: productPriceLabel.text!, tagString: productTagsLabel.text!) {
+            
+            let productName = productNameLabel.text!
+            let productBlurb = productBlurbLabel.text!
+            let productPrice = convertCurrencyToDouble(currency: productPriceLabel.text!)
+            let productTags = convertStringToArray(string: productTagsLabel.text!)
+            let productImage = prepareProductImage()
+            createNewProductForSale(name: productName, blurb: productBlurb, price: productPrice, picture: productImage, tags: productTags)
+        } else {
+            //TODO: Refactor into a shared view
+            let alertController = UIAlertController(title: "DayTrip", message:
+                "Inputs cannot be empty. Price must be in the proper format", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func onImageTap(_ sender: Any) {
@@ -74,14 +92,34 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
     func convertCurrencyToDouble(currency: String) -> Double {
         let usLocale = Locale(identifier: "en_US")
         let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
         formatter.locale = usLocale
         let number = formatter.number(from: currency)
         return number as! Double
     }
     
-    func prepareProductImage() -> PFFileObject {
-        let imageData = productImageView.image!.pngData()
-        let file = PFFileObject(data: imageData!)
-        return file!
+    func convertStringToArray(string: String) -> [String] {
+        return string.components(separatedBy: ";")
+    }
+    
+    func prepareProductImage() -> PFFileObject? {
+        if let imageData = productImageView.image!.pngData() {
+            let file = PFFileObject(data: imageData)
+            return file!
+        }
+        return nil
+    }
+    
+    func validateFormInputs(name: String, blurb: String, priceString: String, tagString: String) -> Bool {
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        let number = formatter.number(from: priceString)
+        
+        if (name.isEmpty || blurb.isEmpty || priceString.isEmpty || tagString.isEmpty || number == nil) {
+            return false
+        }
+        
+        return true
     }
 }

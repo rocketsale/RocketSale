@@ -11,6 +11,7 @@ import Parse
 
 class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
     
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var productTableView: UITableView!
     
     let refreshControl = UIRefreshControl()
@@ -21,6 +22,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         productTableView.delegate = self
         productTableView.dataSource = self
+        roundButtonCorners()
         getRecentProducts()
         setupRefreshControl()
     }
@@ -28,6 +30,12 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getRecentProducts()
+    }
+    
+    //MARK: Styling methods
+    func roundButtonCorners() {
+        searchButton.layer.cornerRadius = 5
+        searchButton.layer.masksToBounds = true
     }
     
     //MARK: Data reload methods
@@ -62,9 +70,13 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         if isProductFavorited(users: products[indexPath.row].favoritedUser) {
-            cell.favoriteButton.backgroundColor = UIColor.green
+            cell.favoriteButton.backgroundColor = UIColor.white
         }
         return cell
+    }
+    
+    @IBAction func onSearchTap(_ sender: Any) {
+        
     }
     
     func onBuyTap(cell: ProductCell) {

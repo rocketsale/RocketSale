@@ -21,7 +21,6 @@ class ProfileViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateUserInformation()
     }
     
@@ -59,7 +58,30 @@ class ProfileViewController: UIViewController {
                 self.interestsLabel.text = "\((currUser.interests ?? [""]))"
                 self.numTransactionsLabel.text = "\(currUser.numberOfItemsSold + currUser.numberOfItemsBought)"
                 self.descriptionLabel.text = currUser.profileDescription
+                
+                //TODO: when user has prof pic update profile pic imageview
+//                let userImageFile = currUser.profilePicture!
+//                userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    } else if let imageData = imageData {
+//                        let image = UIImage(data:imageData)
+//                        self.ProfilePic.image = image
+//                    }
+//                }
             }
         }
     }
+    
+    //TODO: Add identifier to LoginViewController
+    @IBAction func onLogout(_ sender: Any) {
+//        //User.logOut()
+//        let main = UIStoryboard(name: "Main", bundle: nil)
+//        let loginVC = main.instantiateViewController(withIdentifier: "LoginViewController")
+//        let delegate = UIApplication.shared.delegate as! AppDelegate
+//        delegate.window?.rootViewController = loginVC
+    }
+    
+    //TODO: Add default profile picture image to Xcode
+    
 }

@@ -18,8 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-profile-icon-24" translatesAutoresizingMaskIntoConstraints="NO" id="3Z0-IP-onM" userLabel="Profile Pic Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Z0-IP-onM" userLabel="Profile Pic Image View">
                                 <rect key="frame" x="123.5" y="134.5" width="128" height="128"/>
+                                <color key="backgroundColor" red="0.7887055838" green="0.7887055838" blue="0.7887055838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Lg8-CX-h6h"/>
                                     <constraint firstAttribute="width" constant="128" id="aMg-O3-iai"/>
@@ -189,7 +190,4 @@
             <point key="canvasLocation" x="1972" y="2669"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="default-profile-icon-24" width="600" height="600"/>
-    </resources>
 </document>

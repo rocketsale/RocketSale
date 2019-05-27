@@ -156,6 +156,14 @@
                     <navigationItem key="navigationItem" id="Um5-fl-iNy">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="HnJ-bd-TnE"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ProfilePic" destination="3Z0-IP-onM" id="Fkg-I8-iP9"/>
+                        <outlet property="descriptionLabel" destination="cxc-NC-2An" id="Hss-s8-Trk"/>
+                        <outlet property="interestsLabel" destination="wFG-kb-QBE" id="0t7-53-ERf"/>
+                        <outlet property="numTransactionsLabel" destination="dWu-3f-lB1" id="vBf-66-Ca0"/>
+                        <outlet property="phoneNumberLabel" destination="MBP-st-NBL" id="eKp-EB-yjh"/>
+                        <outlet property="usernameLabel" destination="G54-RD-n9F" id="LBk-J0-lha"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyU-sQ-nlr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController {
                 self.numTransactionsLabel.text = "\(currUser.numberOfItemsSold + currUser.numberOfItemsBought)"
                 self.descriptionLabel.text = currUser.profileDescription
                 
-                //TODO: when user has prof pic update profile pic imageview
+                //TODO: when user has prof pic update ProfilePic imageview
 //                let userImageFile = currUser.profilePicture!
 //                userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
 //                    if let error = error {

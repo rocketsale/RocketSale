@@ -42,6 +42,7 @@
 		090F8F9622911CE5007325B9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F9522911CE5007325B9 /* ProductCell.swift */; };
 		090F8F982291382C007325B9 /* FavoritesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F972291382C007325B9 /* FavoritesDB.swift */; };
 		5087F20058D6635A0874A0AE /* Pods_RocketSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB391F459AD892B929DA1EF8 /* Pods_RocketSale.framework */; };
+		54B2D326229CC714007A7D84 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2D325229CC714007A7D84 /* FavoritesCell.swift */; };
 		75878BFC3A70399F7C85D71B /* Pods_RocketSaleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCCA2A77776497000E2A0C4 /* Pods_RocketSaleTests.framework */; };
 		97FA4875EE353EFE7A9FC8D5 /* Pods_RocketSaleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6112ABFB2FB7A67ECB1680E /* Pods_RocketSaleUITests.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		090F8F9522911CE5007325B9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		090F8F972291382C007325B9 /* FavoritesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDB.swift; sourceTree = "<group>"; };
 		32A306AB73161D1B3122D270 /* Pods-RocketSaleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		54B2D325229CC714007A7D84 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		8A92028849C59BA7C9D69CFD /* Pods-RocketSaleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleTests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleTests/Pods-RocketSaleTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0370994583E1C81DEB67504 /* Pods-RocketSaleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.debug.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A16C083B3AA6C5D0C88829F6 /* Pods-RocketSaleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleTests.debug.xcconfig"; path = "Target Support Files/Pods-RocketSaleTests/Pods-RocketSaleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 		090F8F58228BE376007325B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54B2D325229CC714007A7D84 /* FavoritesCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				090F8F4A228BE311007325B9 /* ProfileViewController.swift in Sources */,
 				090F8F9622911CE5007325B9 /* ProductCell.swift in Sources */,
 				090F8F94228E5764007325B9 /* Product.swift in Sources */,
+				54B2D326229CC714007A7D84 /* FavoritesCell.swift in Sources */,
 				090F8F6A228BE54F007325B9 /* BaseView.swift in Sources */,
 				090F8F46228BE2F8007325B9 /* ProductFeedViewController.swift in Sources */,
 				090F8F982291382C007325B9 /* FavoritesDB.swift in Sources */,

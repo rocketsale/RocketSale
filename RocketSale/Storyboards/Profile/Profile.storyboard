@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Z0-IP-onM" userLabel="Profile Pic Image View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Z0-IP-onM" userLabel="Profile Pic Image View">
                                 <rect key="frame" x="123.5" y="134.5" width="128" height="128"/>
                                 <color key="backgroundColor" red="0.7887055838" green="0.7887055838" blue="0.7887055838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>

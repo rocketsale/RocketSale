@@ -55,9 +55,14 @@ class ProfileViewController: UIViewController {
         
                 self.usernameLabel.text = currUser.username
                 self.phoneNumberLabel.text = currUser.phoneNumber
-                self.interestsLabel.text = "\((currUser.interests ?? [""]))"
                 self.numTransactionsLabel.text = "\(currUser.numberOfItemsSold + currUser.numberOfItemsBought)"
                 self.descriptionLabel.text = currUser.profileDescription
+                
+                var interests = ""
+                for i in currUser.interests ?? [""] {
+                    interests += i + " "
+                }
+                self.interestsLabel.text = interests
                 
                 if currUser.profilePicture != nil {
                     let userImageFile = currUser.profilePicture!

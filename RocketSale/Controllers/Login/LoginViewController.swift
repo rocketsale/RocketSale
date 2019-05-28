@@ -7,15 +7,37 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onSignIn(_ sender: Any) {
+        let username = usernameField.text!
+        let password = passwordField.text!
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginToHome", sender: nil)
+            } else {
+                let err = UIAlertController(title: "Error", message: "This account does not exist", preferredStyle: .alert)
+                err.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(err, animated:true)
+            }
+        }
+    }
+    
+    @IBAction func onSignUp(_ sender: Any) {
+        performSegue(withIdentifier: "loginToSignup", sender: nil)
+    }
     
 
     /*

@@ -51,6 +51,7 @@ class UserDBHelper {
     static func getUser(email: String, completion: @escaping ((_ error: Error?, _ user: User?) -> Void)) {
         let query = User.query()
         query?.whereKey("email", equalTo: email)
+        query?.includeKey("purchasedProducts")
         query?.getFirstObjectInBackground(block: { (user, error) in
             if let error = error {
                 completion(error, nil)

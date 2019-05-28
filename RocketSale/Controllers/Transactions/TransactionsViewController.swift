@@ -58,8 +58,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             getSold()
             products = soldProducts
         }
-        self.productsTableView.reloadData()
-        self.refreshControl.endRefreshing()
     }
     
     
@@ -70,7 +68,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 print("ERROR: \(error.localizedDescription)")
             } else {
                 let currUser = user!
-                self.boughtProducts = currUser.purchasedProducts ?? []
+                print(currUser.purchasedProducts)
+                self.products = currUser.purchasedProducts ?? []
+                //self.boughtProducts = currUser.purchasedProducts ?? []
+                self.productsTableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -109,8 +111,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionsProductCell") as! TransactionsProductCell
-        
-        print(products[indexPath.row].picture)
         
         if products[indexPath.row].picture != nil {
             let productImageFile = products[indexPath.row].picture

@@ -11,6 +11,8 @@ import Parse
 
 class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
     
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var productTableView: UITableView!
     
     let refreshControl = UIRefreshControl()
@@ -21,8 +23,22 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         productTableView.delegate = self
         productTableView.dataSource = self
+        roundButtonCorners()
         getRecentProducts()
         setupRefreshControl()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if ((searchTextField.text?.isEmpty)!) {
+            getRecentProducts()
+        }
+    }
+    
+    //MARK: Styling methods
+    func roundButtonCorners() {
+        searchButton.layer.cornerRadius = 5
+        searchButton.layer.masksToBounds = true
     }
     
     //MARK: Data reload methods
@@ -43,6 +59,13 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         cell.productName.text = products[indexPath.row].name
         cell.productBlurb.text = products[indexPath.row].blurb
         cell.productPrice.text = String(format: "$%.02f", products[indexPath.row].price)
+        
+        if products[indexPath.row].picture != nil {
+            let urlString = products[indexPath.row].picture!.url!
+            let url = URL(string: urlString)
+            cell.productImageView.af_setImage(withURL: url!)
+        }
+        
         if products[indexPath.row].isPurchased == true {
             cell.buyButton.isHidden = true
         } else {
@@ -50,9 +73,17 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         if isProductFavorited(users: products[indexPath.row].favoritedUser) {
-            cell.favoriteButton.backgroundColor = UIColor.green
+            cell.favoriteButton.backgroundColor = UIColor.white
         }
         return cell
+    }
+    
+    @IBAction func onSearchTap(_ sender: Any) {
+        if !searchTextField.text!.isEmpty {
+            getProductsBySearchTerm(searchTerm: searchTextField.text!)
+        } else {
+            getRecentProducts()
+        }
     }
     
     func onBuyTap(cell: ProductCell) {
@@ -66,10 +97,26 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         let chosenProduct = products[indexPath.row]
         favoriteProduct(product: chosenProduct, indexPath: indexPath)
     }
-
+    
+    //MARK: Interactivity method
+    @IBAction func onSellTap(_ sender: Any) {
+    }
+    
     //MARK: Database interaction methods
     @objc func getRecentProducts() {
         ProductDBHelper.getMostRecentProducts(limit: 20) { (error, products) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if products != nil {
+                self.products = products!
+                self.productTableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+    
+    func getProductsBySearchTerm(searchTerm: String) {
+        ProductDBHelper.getProductsBySearchTerm(searchTerm: searchTerm, limit: 20) { (error, products) in
             if let error = error {
                 print(error.localizedDescription)
             } else if products != nil {
@@ -85,6 +132,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
             if error != nil {
                 print(error?.localizedDescription)
             } else if product != nil{
+                print(product)
                 self.products[indexPath.row] = product!
                 self.productTableView.reloadData()
             }

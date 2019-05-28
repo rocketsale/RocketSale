@@ -45,6 +45,20 @@ class ProductDBHelper {
         })
     }
     
+    static func getProductsBySearchTerm(searchTerm: String, limit: Int, completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
+        let query = Product.query()
+        query?.addDescendingOrder("createdAt")
+        query?.whereKey("blurb", matchesText: searchTerm)
+        query?.limit = limit
+        query?.findObjectsInBackground(block: { (products, error) in
+            if let error = error {
+                completion(error, nil)
+            } else if let products = products as! [Product]? {
+                completion(nil, products)
+            }
+        })
+    }
+    
     static func getProductById(objectId: String, completion: @escaping ((_ error: Error?, _ product: Product?) -> Void)) {
         let query = Product.query()
         query?.whereKey("objectId", equalTo: objectId)

@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="GAa-id-dNd">
             <objects>
-                <viewController id="CnZ-Qj-giz" customClass="LoginViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="CnZ-Qj-giz" customClass="LoginViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FFn-hd-t6W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -324,6 +324,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8y9-Xw-KmQ"/>
+        <segue reference="UKF-jG-fxs"/>
     </inferredMetricsTieBreakers>
 </document>

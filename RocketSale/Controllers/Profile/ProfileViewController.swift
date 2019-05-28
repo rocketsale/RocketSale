@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController {
     }
     
     func updateUserInformation() {
-        UserDBHelper.getUser(email: "ryan@gmail.com") { (error, user) in
+        UserDBHelper.getUser(email: (PFUser.current()?.email)!) { (error, user) in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
             } else {
@@ -59,16 +59,20 @@ class ProfileViewController: UIViewController {
                 self.numTransactionsLabel.text = "\(currUser.numberOfItemsSold + currUser.numberOfItemsBought)"
                 self.descriptionLabel.text = currUser.profileDescription
                 
-                //TODO: when user has prof pic update ProfilePic imageview
-//                let userImageFile = currUser.profilePicture!
-//                userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
-//                    if let error = error {
-//                        print(error.localizedDescription)
-//                    } else if let imageData = imageData {
-//                        let image = UIImage(data:imageData)
-//                        self.ProfilePic.image = image
-//                    }
-//                }
+                if currUser.profilePicture != nil {
+                    let userImageFile = currUser.profilePicture!
+                    
+                    userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }
+                        else if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            self.ProfilePic.image = image
+                        }
+                    }
+                }
+                
             }
         }
     }

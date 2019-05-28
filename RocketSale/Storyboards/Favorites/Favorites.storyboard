@@ -22,16 +22,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesCell" rowHeight="119" id="xI1-H4-fbi" customClass="FavoritesCell" customModule="RocketSale" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="119"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesCell" rowHeight="124" id="xI1-H4-fbi" customClass="FavoritesCell" customModule="RocketSale" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xI1-H4-fbi" id="MSH-xS-7Y2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UpC-39-mDc" userLabel="Product Image View">
-                                                    <rect key="frame" x="23" y="19" width="90" height="81"/>
-                                                    <color key="backgroundColor" red="0.7887055838" green="0.7887055838" blue="0.7887055838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UpC-39-mDc" userLabel="Product Image View">
+                                                    <rect key="frame" x="23" y="19" width="90" height="86"/>
+                                                    <color key="backgroundColor" red="0.90980392160000001" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="vle-9P-gia"/>
                                                     </constraints>
@@ -49,8 +49,8 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpK-Yn-BUE">
-                                                    <rect key="frame" x="121" y="48" width="184" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpK-Yn-BUE">
+                                                    <rect key="frame" x="121" y="48" width="184" height="19.5"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Blurb">
                                                             <attributes>
@@ -76,7 +76,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ia-iE-LxK">
-                                                    <rect key="frame" x="317" y="47" width="31" height="33"/>
+                                                    <rect key="frame" x="317" y="47" width="31" height="38"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal">
                                                         <attributedString key="attributedTitle">
@@ -95,7 +95,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="UpC-39-mDc" firstAttribute="top" secondItem="MSH-xS-7Y2" secondAttribute="topMargin" constant="8" id="5Sl-N5-0OA"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UpC-39-mDc" secondAttribute="bottom" constant="8" id="7Yd-eI-UJQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UpC-39-mDc" secondAttribute="bottom" constant="8" id="7Yd-eI-UJQ"/>
                                                 <constraint firstItem="2xj-dN-7CO" firstAttribute="leading" secondItem="UpC-39-mDc" secondAttribute="trailing" constant="8" id="X3J-se-epS"/>
                                                 <constraint firstItem="5ia-iE-LxK" firstAttribute="top" secondItem="F6r-nq-LHi" secondAttribute="bottom" constant="8" id="Ygl-AY-ilI"/>
                                                 <constraint firstItem="F6r-nq-LHi" firstAttribute="trailing" secondItem="MSH-xS-7Y2" secondAttribute="trailingMargin" id="fm8-5T-CO5"/>

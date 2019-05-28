@@ -31,7 +31,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         favoritesTableView.refreshControl = refreshControl
     }
     
-    //MARK: Database interaction methods
+    //MARK: DatabaseHelper interaction methods
     @objc func getFavoriteProducts() {
         FavoritesDBHelper.getAllFavorites { (error, products) in
             if let error = error {

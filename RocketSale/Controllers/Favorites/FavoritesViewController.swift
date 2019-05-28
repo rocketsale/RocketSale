@@ -38,9 +38,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 print(error.localizedDescription)
             } else if products != nil {
                 self.favoriteProducts = products!
-                
-                print(self.favoriteProducts)
-                
                 self.favoritesTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
@@ -80,8 +77,14 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 print(error?.localizedDescription)
             } else if product != nil{
                 self.favoriteProducts[indexPath.row] = product!
+                
+                //MARK: After buying remove from favorite list?
+                //self.favoriteProducts.remove(at: indexPath.row)
+               
                 self.favoritesTableView.reloadData()
             }
         }
     }
+    
+ 
 }

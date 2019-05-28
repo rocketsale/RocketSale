@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesCell" rowHeight="119" id="xI1-H4-fbi" customClass="FavoritesCell" customModule="RocketSale" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoritesCell" rowHeight="119" id="xI1-H4-fbi" customClass="FavoritesCell" customModule="RocketSale" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xI1-H4-fbi" id="MSH-xS-7Y2">
@@ -103,6 +103,7 @@
                                                 <constraint firstItem="2xj-dN-7CO" firstAttribute="top" secondItem="MSH-xS-7Y2" secondAttribute="topMargin" constant="8" id="qCh-6m-blR"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="5ia-iE-LxK" secondAttribute="trailing" constant="12" id="qDZ-MQ-DMM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="CpK-Yn-BUE" secondAttribute="trailing" constant="55" id="qnN-vE-mjp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5ia-iE-LxK" secondAttribute="bottom" constant="28" id="tgz-di-Dtz"/>
                                                 <constraint firstItem="UpC-39-mDc" firstAttribute="leading" secondItem="MSH-xS-7Y2" secondAttribute="leadingMargin" constant="8" id="ud8-Xc-u7p"/>
                                                 <constraint firstItem="CpK-Yn-BUE" firstAttribute="leading" secondItem="UpC-39-mDc" secondAttribute="trailing" constant="8" id="vIe-3h-e0N"/>
                                                 <constraint firstItem="CpK-Yn-BUE" firstAttribute="top" secondItem="2xj-dN-7CO" secondAttribute="bottom" constant="8" id="wWF-Wo-zwv"/>

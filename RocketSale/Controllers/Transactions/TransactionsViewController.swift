@@ -110,6 +110,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionsProductCell") as! TransactionsProductCell
         
+        print(products[indexPath.row].picture)
+        
         if products[indexPath.row].picture != nil {
             let productImageFile = products[indexPath.row].picture
             productImageFile!.getDataInBackground { (imageData: Data?, error: Error?) in

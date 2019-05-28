@@ -84,11 +84,11 @@ class ProfileViewController: UIViewController {
     
     //TODO: Add identifier to LoginViewController
     @IBAction func onLogout(_ sender: Any) {
-//        //User.logOut()
-//        let main = UIStoryboard(name: "Main", bundle: nil)
-//        let loginVC = main.instantiateViewController(withIdentifier: "LoginViewController")
-//        let delegate = UIApplication.shared.delegate as! AppDelegate
-//        delegate.window?.rootViewController = loginVC
+        //User.logOut()
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = main.instantiateViewController(withIdentifier: "LoginViewController")
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.window?.rootViewController = loginVC
     }
     
     //TODO: Add default profile picture image to Xcode

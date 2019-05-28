@@ -10,31 +10,33 @@ import Foundation
 import Parse
 
 class TransactionsDBHelper {
-
-    static func getSoldProducts(completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
-        var products: [Product] = []
+    
+    static func getRecentSoldProducts(limit: Int, completion: @escaping ((_ error: Error?, _ products: [Product]?) -> Void)) {
         
-        let query = User.query()
-        query?.whereKey("email", equalTo: PFUser.current()?.email!)
+        var soldProducts: [Product] = []
+        
+        let query = Product.query()
         query?.addDescendingOrder("createdAt")
-        query?.getFirstObjectInBackground(block: { (user, error) in
+        query?.limit = limit
+        query?.findObjectsInBackground(block: { (products, error) in
             if let error = error {
                 completion(error, nil)
-            } else if let user = user as! User? {
-                if let favoritedProducts = user.favoritedProducts {
-                    
-                    //Only add products sold by the currrent user
-                    for product in user.favoritedProducts! {
-                        if product.seller == PFUser.current() {
-                            if product.isPurchased{
-                                products.append(product)
-                            }
+            } else if let products = products as! [Product]? {
+                
+                //Only add products sold by the currrent user
+                for product in products {
+                    if product.seller == PFUser.current() {
+                        if product.isPurchased{
+                            soldProducts.append(product)
                         }
                     }
-                    
                 }
-                completion(nil, products)
+                
+                completion(nil,soldProducts)
             }
         })
     }
 }
+
+
+

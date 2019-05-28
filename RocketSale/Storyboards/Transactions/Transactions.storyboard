@@ -92,6 +92,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="blurbLabel" destination="2r2-jx-bOD" id="z8I-7g-DWr"/>
+                                            <outlet property="priceLabel" destination="pUD-fo-TmA" id="hc3-w0-1jd"/>
+                                            <outlet property="productImageView" destination="kaa-pN-r53" id="rbk-au-WLE"/>
+                                            <outlet property="productNameLabel" destination="nsv-2X-W8i" id="51a-jO-5hr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -102,17 +108,22 @@
                     <navigationItem key="navigationItem" id="guw-6d-bn2">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="2Pn-ai-8TH">
-                            <rect key="frame" x="129" y="7.5" width="117" height="29"/>
+                            <rect key="frame" x="99.5" y="7" width="176" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
+                                <segment title="All"/>
                                 <segment title="Bought"/>
                                 <segment title="Sold"/>
                             </segments>
                             <color key="tintColor" red="0.90980392156862744" green="0.12941176470588234" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="indexChanged:" destination="ClH-pY-vJX" eventType="valueChanged" id="nLk-4M-CYR"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="productsTableView" destination="NMn-8y-GC7" id="6hu-Om-9FK"/>
+                        <outlet property="segmentedControl" destination="2Pn-ai-8TH" id="35A-Qq-i4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0p-3u-hkI" userLabel="First Responder" sceneMemberID="firstResponder"/>

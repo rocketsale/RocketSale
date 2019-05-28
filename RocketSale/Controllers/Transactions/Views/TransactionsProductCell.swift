@@ -10,6 +10,11 @@ import UIKit
 
 class TransactionsProductCell: UITableViewCell {
 
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var blurbLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

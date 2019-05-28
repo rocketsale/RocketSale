@@ -11,6 +11,7 @@ import Parse
 
 class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
     
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var productTableView: UITableView!
     
@@ -29,7 +30,9 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getRecentProducts()
+        if ((searchTextField.text?.isEmpty)!) {
+            getRecentProducts()
+        }
     }
     
     //MARK: Styling methods
@@ -76,7 +79,11 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func onSearchTap(_ sender: Any) {
-        
+        if !searchTextField.text!.isEmpty {
+            getProductsBySearchTerm(searchTerm: searchTextField.text!)
+        } else {
+            getRecentProducts()
+        }
     }
     
     func onBuyTap(cell: ProductCell) {
@@ -108,11 +115,24 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func getProductsBySearchTerm(searchTerm: String) {
+        ProductDBHelper.getProductsBySearchTerm(searchTerm: searchTerm, limit: 20) { (error, products) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if products != nil {
+                self.products = products!
+                self.productTableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+    
     func purchaseProduct(product: Product, indexPath: IndexPath) {
         ProductDBHelper.purchaseProduct(product: product) { (error, product) in
             if error != nil {
                 print(error?.localizedDescription)
             } else if product != nil{
+                print(product)
                 self.products[indexPath.row] = product!
                 self.productTableView.reloadData()
             }

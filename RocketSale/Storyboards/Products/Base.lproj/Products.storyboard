@@ -20,9 +20,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PTK-au-UcC">
                                 <rect key="frame" x="0.0" y="148" width="375" height="519"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="productFeedCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productFeedCell" rowHeight="105" id="Xcj-Q1-VDN" customClass="ProductCell" customModule="RocketSale" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="productFeedCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="productFeedCell" rowHeight="105" id="Xcj-Q1-VDN" customClass="ProductCell" customModule="RocketSale" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xcj-Q1-VDN" id="jst-te-0aZ" customClass="productCell" customModule="RocketSale" customModuleProvider="target">
@@ -164,6 +164,7 @@
                     <connections>
                         <outlet property="productTableView" destination="PTK-au-UcC" id="EVx-qc-Bbn"/>
                         <outlet property="searchButton" destination="DLf-eC-q3z" id="LAu-11-BPd"/>
+                        <outlet property="searchTextField" destination="CfK-jd-KT6" id="9mN-Pl-fY6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnd-EK-siF" userLabel="First Responder" sceneMemberID="firstResponder"/>

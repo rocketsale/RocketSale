@@ -47,6 +47,8 @@ class DetailedProductViewController: UIViewController {
         roundView(view: productImageView, option: "rounded")
         roundView(view: productBuyButton, option: "default")
         roundView(view: productDetailsView, option: "default")
+        productImageView.layer.borderWidth = 2
+        productImageView.layer.borderColor = UIColor.white.cgColor
     }
     
     func roundView(view: UIView, option: String) {

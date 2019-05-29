@@ -71,7 +71,7 @@
                                                                 <constraint firstAttribute="height" constant="30" id="JE2-Av-Ye4"/>
                                                             </constraints>
                                                             <state key="normal" title="Like">
-                                                                <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <color key="titleColor" red="0.80784313730000001" green="0.066666666669999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="onFavoriteTap:" destination="Xcj-Q1-VDN" eventType="touchUpInside" id="Am3-oR-orP"/>
@@ -83,7 +83,7 @@
                                                                 <constraint firstAttribute="height" constant="30" id="o4E-kp-MJm"/>
                                                             </constraints>
                                                             <state key="normal" title="Buy">
-                                                                <color key="titleColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <color key="titleColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="onBuyTap:" destination="Xcj-Q1-VDN" eventType="touchUpInside" id="S3O-Sp-mCZ"/>
@@ -130,7 +130,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLf-eC-q3z">
                                 <rect key="frame" x="8" y="110" width="359" height="30"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.066666666669999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

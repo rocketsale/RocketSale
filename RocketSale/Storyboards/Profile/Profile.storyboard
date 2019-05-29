@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBP-st-NBL" userLabel="Phone # Label">
-                                <rect key="frame" x="24" y="340" width="84" height="18"/>
+                                <rect key="frame" x="24" y="350" width="84" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="4081111111">
                                         <attributes>
@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2U-Pf-Ehk">
-                                <rect key="frame" x="16" y="370" width="175" height="18"/>
+                                <rect key="frame" x="16" y="380" width="175" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Transactions Completed">
                                         <attributes>
@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWu-3f-lB1">
-                                <rect key="frame" x="24" y="396" width="17" height="18"/>
+                                <rect key="frame" x="24" y="406" width="17" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="20">
                                         <attributes>
@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxc-NC-2An">
-                                <rect key="frame" x="16" y="481.5" width="343" height="17.5"/>
+                                <rect key="frame" x="16" y="491.5" width="343" height="17.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Profile Description">
                                         <attributes>
@@ -90,7 +90,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-vd-hrF">
-                                <rect key="frame" x="16" y="426" width="63" height="18"/>
+                                <rect key="frame" x="16" y="436" width="63" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Interests">
                                         <attributes>
@@ -103,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFG-kb-QBE">
-                                <rect key="frame" x="24" y="452" width="335" height="17.5"/>
+                                <rect key="frame" x="24" y="462" width="335" height="17.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Stussy, Music">
                                         <attributes>
@@ -115,7 +115,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2M-gu-p3L" userLabel="ContactInfo Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2M-gu-p3L" userLabel="ContactInfo Label">
                                 <rect key="frame" x="16" y="324" width="89" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Contact Info">
@@ -139,13 +139,13 @@
                             <constraint firstItem="cxc-NC-2An" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="16" id="BeU-F3-sfV"/>
                             <constraint firstItem="tmt-vd-hrF" firstAttribute="top" secondItem="dWu-3f-lB1" secondAttribute="bottom" constant="12" id="D6Z-5E-qWM"/>
                             <constraint firstItem="dWu-3f-lB1" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="24" id="Efp-Na-z8K"/>
+                            <constraint firstItem="c2M-gu-p3L" firstAttribute="top" secondItem="G54-RD-n9F" secondAttribute="bottom" constant="32.5" id="Pfo-by-TaY"/>
                             <constraint firstItem="grP-g0-o7N" firstAttribute="trailing" secondItem="wFG-kb-QBE" secondAttribute="trailing" constant="16" id="QK8-4D-ndw"/>
                             <constraint firstItem="s2U-Pf-Ehk" firstAttribute="top" secondItem="MBP-st-NBL" secondAttribute="bottom" constant="12" id="QbV-vW-hjK"/>
                             <constraint firstItem="tmt-vd-hrF" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="16" id="Ujc-a0-sf3"/>
                             <constraint firstItem="MBP-st-NBL" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="24" id="XJX-so-sCU"/>
                             <constraint firstItem="wFG-kb-QBE" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="24" id="b5G-jV-6mb"/>
                             <constraint firstItem="wFG-kb-QBE" firstAttribute="top" secondItem="tmt-vd-hrF" secondAttribute="bottom" constant="8" id="ccW-jh-k7n"/>
-                            <constraint firstItem="c2M-gu-p3L" firstAttribute="top" secondItem="grP-g0-o7N" secondAttribute="top" constant="250" id="ibA-CH-ORA"/>
                             <constraint firstItem="3Z0-IP-onM" firstAttribute="centerX" secondItem="w1c-T1-De1" secondAttribute="centerX" id="k9G-iL-meh"/>
                             <constraint firstItem="cxc-NC-2An" firstAttribute="top" secondItem="wFG-kb-QBE" secondAttribute="bottom" constant="12" id="uP0-x9-3As"/>
                             <constraint firstItem="MBP-st-NBL" firstAttribute="top" secondItem="c2M-gu-p3L" secondAttribute="bottom" constant="8" id="usf-pq-fbv"/>

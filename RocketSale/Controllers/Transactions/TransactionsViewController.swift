@@ -6,6 +6,8 @@
 //  Copyright © 2019 RocketInc. All rights reserved.
 //
 
+//TODO: resize image gotten from DB like instagram
+
 import UIKit
 import Parse
 

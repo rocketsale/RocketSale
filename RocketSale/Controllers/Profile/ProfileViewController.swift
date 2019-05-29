@@ -24,8 +24,8 @@ class ProfileViewController: UIViewController {
         updateUserInformation()
     }
     
-    func makeDummyUser(){
-        UserDBHelper.createNewUser(email: "ryan@gmail.com", password: "0123") { (error) in
+    func makeDummyUser(_email: String, _password: String){
+        UserDBHelper.createNewUser(email: _email, password: _password) { (error) in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
             }
@@ -35,8 +35,8 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func fillDummyUser() {
-        UserDBHelper.initializeUserAccountInformation(email: "ryan@gmail.com", phoneNumber: "4081234567", description: "Tester", interests: ["food", "skateboarding"], profilePicture: nil) { (error) in
+    func fillDummyUser(_email: String) {
+        UserDBHelper.initializeUserAccountInformation(email: _email, phoneNumber: "4081234567", description: "Tester", interests: ["food", "skateboarding"], profilePicture: nil) { (error) in
             if let error = error {
                  print("ERROR: \(error.localizedDescription)")
             }

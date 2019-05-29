@@ -20,6 +20,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         favoritesTableView.delegate = self
         favoritesTableView.dataSource = self
+        
         getFavoriteProducts()
         setupRefreshControl()
     }
@@ -36,7 +37,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     @objc func getFavoriteProducts() {
         FavoritesDBHelper.getAllFavorites { (error, products) in
             if let error = error {
-                print(error.localizedDescription)
+                self.displayGetFavoriteProductsError(error: error)
             } else if products != nil {
                 self.favoriteProducts = products!
                 self.favoritesTableView.reloadData()
@@ -57,13 +58,12 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             let productImageFile = favoriteProducts[indexPath.row].picture
             productImageFile!.getDataInBackground { (imageData: Data?, error: Error?) in
                 if let error = error {
-                    print(error.localizedDescription)
+                    print("Get Product Pic Error: \(error.localizedDescription)")
                 }
                 else if let imageData = imageData {
                     let image = UIImage(data:imageData)
                     cell.productImageView.image = image
                 }
-            
             }
         }
         
@@ -101,6 +101,18 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.favoritesTableView.reloadData()
             }
         }
+    }
+    
+    //MARK: Display Error functions
+    func displayGetFavoriteProductsError(error: Error) {
+        let title = "Error"
+        let message = "Oops! Something went wrong while getting favorited products"
+        print("Get Favorite Products Error: \(error.localizedDescription)")
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(OKAction)
+        present(alertController, animated: true)
     }
     
     

@@ -162,4 +162,18 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         }
         return false
     }
+    
+    //MARK: Segue methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Gets the exact array
+        if segue.identifier == "productDetailSegue" {
+            let senderCell = sender as! UITableViewCell
+            let indexPath = productTableView.indexPath(for: senderCell)!
+            let productData = products[indexPath.row]
+
+            //Passes data to detail view
+            let detailedProductFeedVC = segue.destination as! DetailedProductViewController
+            detailedProductFeedVC.product = productData
+        }
+    }
 }

@@ -241,8 +241,10 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjS-Cn-WFP">
                                 <rect key="frame" x="24" y="291" width="327" height="30"/>
-                                <color key="backgroundColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Purchase"/>
+                                <color key="backgroundColor" red="0.80784313725490198" green="0.066666666666666666" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Purchase">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="onBuyTap:" destination="7lR-sg-Inn" eventType="touchUpInside" id="3Aq-2I-HaP"/>
                                 </connections>

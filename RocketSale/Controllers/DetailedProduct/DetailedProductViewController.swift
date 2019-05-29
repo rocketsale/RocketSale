@@ -36,6 +36,10 @@ class DetailedProductViewController: UIViewController {
             let url = URL(string: urlString)
             productImageView.af_setImage(withURL: url!)
         }
+        
+        if product.isPurchased {
+            productBuyButton.isHidden = true
+        }
     }
     
     //MARK: Style related methods
@@ -59,7 +63,21 @@ class DetailedProductViewController: UIViewController {
         }
     }
     
+    //MARK: Database interaction methods
+    func purchaseProduct(product: Product) {
+        ProductDBHelper.purchaseProduct(product: product) { (error, product) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else if product != nil{
+                print(product)
+                self.product = product
+                self.setProductData()
+            }
+        }
+    }
+    
+    //MARK: Interactivity methods
     @IBAction func onBuyTap(_ sender: Any) {
-        
+        purchaseProduct(product: product)
     }
 }

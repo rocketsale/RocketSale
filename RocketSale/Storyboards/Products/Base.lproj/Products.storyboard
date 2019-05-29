@@ -67,11 +67,12 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TZ-5X-jhy">
                                                             <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
+                                                            <color key="backgroundColor" red="0.80784313730000001" green="0.066666666669999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="JE2-Av-Ye4"/>
                                                             </constraints>
                                                             <state key="normal" title="Like">
-                                                                <color key="titleColor" red="0.80784313730000001" green="0.066666666669999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="onFavoriteTap:" destination="Xcj-Q1-VDN" eventType="touchUpInside" id="Am3-oR-orP"/>
@@ -79,11 +80,12 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBg-6E-JiT">
                                                             <rect key="frame" x="0.0" y="30" width="49" height="30"/>
+                                                            <color key="backgroundColor" red="0.80784313730000001" green="0.066666666669999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="o4E-kp-MJm"/>
                                                             </constraints>
                                                             <state key="normal" title="Buy">
-                                                                <color key="titleColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="onBuyTap:" destination="Xcj-Q1-VDN" eventType="touchUpInside" id="S3O-Sp-mCZ"/>

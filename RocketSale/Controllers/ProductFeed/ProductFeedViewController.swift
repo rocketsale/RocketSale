@@ -74,6 +74,8 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         
         if isProductFavorited(users: products[indexPath.row].favoritedUser) {
             cell.favoriteButton.backgroundColor = UIColor.white
+            cell.favoriteButton.setTitleColor(.black, for: .normal)
+            cell.favoriteButton.setTitle("Liked", for: .normal)
         }
         return cell
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesCellDelegate {
     
     @IBOutlet weak var favoritesTableView: UITableView!
     
@@ -82,6 +82,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     func onBuyButton(cell: FavoritesCell) {
+        print("here")
         let indexPath = self.favoritesTableView.indexPath(for: cell)!
         let chosenProduct = favoriteProducts[indexPath.row]
         purchaseProduct(product: chosenProduct, indexPath: indexPath)
@@ -95,15 +96,29 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             } else if product != nil{
                 self.favoriteProducts[indexPath.row] = product!
                 
-                //MARK: After buying remove from favorite list?
-                //self.favoriteProducts.remove(at: indexPath.row)
-               
+                //MARK: After buying remove from favorite list
+                self.favoriteProducts.remove(at: indexPath.row)
+
                 self.favoritesTableView.reloadData()
             }
         }
     }
     
-    //MARK: Display Error functions
+    
+    //MARK: Segue to Ryan Luu's DetailedProductScreen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let clickedCell = sender as! UITableViewCell
+        let indexPath = favoritesTableView.indexPath(for: clickedCell)!
+        let selectedProduct = favoriteProducts[indexPath.row]
+        
+        //let detailedProductVC= segue.destination as! DetailedProductViewController
+        //detailedProductVC.product = selectedProduct
+        
+        favoritesTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    //MARK: Display error functions
     func displayGetFavoriteProductsError(error: Error) {
         let title = "Error"
         let message = "Oops! Something went wrong while getting favorited products"

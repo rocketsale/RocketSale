@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Z0-IP-onM" userLabel="Profile Pic Image View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-profile-icon-24" translatesAutoresizingMaskIntoConstraints="NO" id="3Z0-IP-onM" userLabel="Profile Pic Image View">
                                 <rect key="frame" x="123.5" y="134.5" width="128" height="128"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -155,7 +155,11 @@
                         <viewLayoutGuide key="safeArea" id="grP-g0-o7N"/>
                     </view>
                     <navigationItem key="navigationItem" id="Um5-fl-iNy">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="HnJ-bd-TnE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="HnJ-bd-TnE">
+                            <connections>
+                                <action selector="onLogout:" destination="kwX-OK-AnL" id="K2w-t1-WtO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ProfilePic" destination="3Z0-IP-onM" id="Fkg-I8-iP9"/>
@@ -190,4 +194,7 @@
             <point key="canvasLocation" x="1972" y="2669"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default-profile-icon-24" width="600" height="600"/>
+    </resources>
 </document>

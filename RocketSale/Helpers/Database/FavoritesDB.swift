@@ -26,14 +26,6 @@ class FavoritesDBHelper {
                 completion(error, nil)
             } else if let user = user as! User? {
                 if let favoritedProducts = user.favoritedProducts {
-                    
-                    //MARK: only add products still available for purchase to favorites screen?
-//                    for product in user.favoritedProducts! {
-//                        if !product.isPurchased {
-//                            products.append(product)
-//                        }
-//                    }
-                    
                     products = favoritedProducts
                 }
                 completion(nil, products)

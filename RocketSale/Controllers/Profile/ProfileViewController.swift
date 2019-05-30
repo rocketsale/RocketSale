@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        makeProfilePicRounded()
         updateUserInformation()
     }
     
@@ -82,15 +84,22 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    //TODO: Add identifier to LoginViewController
+   
     @IBAction func onLogout(_ sender: Any) {
-        //User.logOut()
+        User.logOut()
         let main = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = main.instantiateViewController(withIdentifier: "LoginViewController")
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.window?.rootViewController = loginVC
     }
     
-    //TODO: Add default profile picture image to Xcode
+    //MARK: Style methods
+    func makeProfilePicRounded() {
+        ProfilePic.layer.borderWidth = 1
+        ProfilePic.layer.masksToBounds = false
+        ProfilePic.layer.borderColor = UIColor.black.cgColor
+        ProfilePic.layer.cornerRadius = ProfilePic.frame.height/2
+        ProfilePic.clipsToBounds = true
+    }
     
 }

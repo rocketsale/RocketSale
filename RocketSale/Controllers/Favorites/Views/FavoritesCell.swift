@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FavoritesCellDelegate: AnyObject {
+protocol FavoritesCellDelegate: class {
     func onBuyButton(cell: FavoritesCell)
 }
 
@@ -36,5 +36,6 @@ class FavoritesCell: UITableViewCell {
 
     @IBAction func onBuyButton(_ sender: Any) {
         delegate?.onBuyButton(cell: self)
+        print("Buy Clicked")
     }
 }

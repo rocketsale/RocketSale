@@ -23,9 +23,8 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         productTableView.delegate = self
         productTableView.dataSource = self
-        roundButtonCorners()
-        getRecentProducts()
         setupRefreshControl()
+        getRecentProducts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,9 +35,8 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     //MARK: Styling methods
-    func roundButtonCorners() {
-        searchButton.layer.cornerRadius = 5
-        searchButton.layer.masksToBounds = true
+    func setStyles() {
+        roundView(view: searchButton, option: "default")
     }
     
     //MARK: Data reload methods
@@ -76,6 +74,10 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
             cell.favoriteButton.backgroundColor = UIColor.white
             cell.favoriteButton.setTitleColor(.black, for: .normal)
             cell.favoriteButton.setTitle("Liked", for: .normal)
+        } else {
+            cell.favoriteButton.backgroundColor = UIColor.init(red: 206/256, green: 17/256, blue: 65/256, alpha: 1)
+            cell.favoriteButton.setTitleColor(.white, for: .normal)
+            cell.favoriteButton.setTitle("Like", for: .normal)
         }
         return cell
     }

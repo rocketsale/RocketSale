@@ -25,29 +25,17 @@ class ProductCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        roundView(view: productImageView, option: "default")
-        roundView(view: buyButton, option: "default")
-        roundView(view: favoriteButton, option: "default")
+        setStyles()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-    func roundView(view: UIView, option: String) {
-        view.layer.masksToBounds = true
-        switch(option) {
-        case "default":
-            view.layer.cornerRadius = 5
-            return
-        case "rounded":
-            view.layer.cornerRadius = view.frame.height/2
-            return
-        default:
-            return
-        }
+    func setStyles() {
+        roundView(view: productImageView, option: "default")
+        roundView(view: buyButton, option: "default")
+        roundView(view: favoriteButton, option: "default")
     }
 
     @IBAction func onFavoriteTap(_ sender: Any) {

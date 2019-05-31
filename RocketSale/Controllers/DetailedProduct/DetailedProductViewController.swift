@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Parse
 
 class DetailedProductViewController: UIViewController {
     @IBOutlet weak var productImageView: UIImageView!
@@ -30,13 +31,19 @@ class DetailedProductViewController: UIViewController {
         productNameLabel.text = product.name
         productPriceLabel.text = String(format: "$%.02f", product.price)
         productBlurbLabel.text = product.blurb
-        
-        if product.picture != nil {
+        setProductImage(picture: product.picture, imageView: productImageView)
+        setProductPurchasedStatus(product: product, button: productBuyButton)
+    }
+    
+    func setProductImage(picture: PFFileObject?, imageView: UIImageView) {
+        if picture != nil {
             let urlString = product.picture!.url!
             let url = URL(string: urlString)
-            productImageView.af_setImage(withURL: url!)
+            imageView.af_setImage(withURL: url!)
         }
-        
+    }
+    
+    func setProductPurchasedStatus(product: Product, button: UIButton) {
         if product.isPurchased {
             productBuyButton.isHidden = true
         }

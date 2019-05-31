@@ -23,6 +23,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         productTableView.delegate = self
         productTableView.dataSource = self
+        setStyles()
         setupRefreshControl()
         getRecentProducts()
     }
@@ -57,20 +58,30 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         cell.productName.text = products[indexPath.row].name
         cell.productBlurb.text = products[indexPath.row].blurb
         cell.productPrice.text = String(format: "$%.02f", products[indexPath.row].price)
-        
-        if products[indexPath.row].picture != nil {
-            let urlString = products[indexPath.row].picture!.url!
+        setCellPicture(picture: products[indexPath.row].picture, cell: cell)
+        setCellPurchasedStatus(isPurchased: products[indexPath.row].isPurchased, cell: cell)
+        setCellFavoritedStatus(favoritedUsers: products[indexPath.row].favoritedUser, cell: cell)
+        return cell
+    }
+    
+    func setCellPicture(picture: PFFileObject?, cell: ProductCell) {
+        if picture != nil {
+            let urlString = picture!.url!
             let url = URL(string: urlString)
             cell.productImageView.af_setImage(withURL: url!)
         }
-        
-        if products[indexPath.row].isPurchased == true {
+    }
+    
+    func setCellPurchasedStatus(isPurchased: Bool, cell: ProductCell) {
+        if isPurchased {
             cell.buyButton.isHidden = true
         } else {
             cell.buyButton.isHidden = false
         }
-        
-        if isProductFavorited(users: products[indexPath.row].favoritedUser) {
+    }
+    
+    func setCellFavoritedStatus(favoritedUsers: [User]?, cell: ProductCell) {
+        if isProductFavorited(users: favoritedUsers) {
             cell.favoriteButton.backgroundColor = UIColor.white
             cell.favoriteButton.setTitleColor(.black, for: .normal)
             cell.favoriteButton.setTitle("Liked", for: .normal)
@@ -79,9 +90,10 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
             cell.favoriteButton.setTitleColor(.white, for: .normal)
             cell.favoriteButton.setTitle("Like", for: .normal)
         }
-        return cell
     }
     
+    
+    //MARK: Interactivity method
     @IBAction func onSearchTap(_ sender: Any) {
         if !searchTextField.text!.isEmpty {
             getProductsBySearchTerm(searchTerm: searchTextField.text!)
@@ -102,7 +114,6 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         favoriteProduct(product: chosenProduct, indexPath: indexPath)
     }
     
-    //MARK: Interactivity method
     @IBAction func onSellTap(_ sender: Any) {
     }
     

@@ -39,10 +39,12 @@ class ProductCell: UITableViewCell {
     }
 
     @IBAction func onFavoriteTap(_ sender: Any) {
+        animateButtonTap(btn: favoriteButton)
         delegate?.onFavoriteTap(cell: self)
     }
     
     @IBAction func onBuyTap(_ sender: Any) {
+        animateButtonTap(btn: buyButton)
         delegate?.onBuyTap(cell: self)
     }
 }

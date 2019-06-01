@@ -72,6 +72,7 @@ class DetailedProductViewController: UIViewController {
     
     //MARK: Interactivity methods
     @IBAction func onBuyTap(_ sender: Any) {
+        animateButtonTap(btn: productBuyButton)
         purchaseProduct(product: product)
     }
 }

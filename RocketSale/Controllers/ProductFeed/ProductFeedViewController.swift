@@ -95,11 +95,8 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK: Interactivity method
     @IBAction func onSearchTap(_ sender: Any) {
-        if !searchTextField.text!.isEmpty {
-            getProductsBySearchTerm(searchTerm: searchTextField.text!)
-        } else {
-            getRecentProducts()
-        }
+        animateButtonTap(btn: searchButton)
+        handleSearch()
     }
     
     func onBuyTap(cell: ProductCell) {
@@ -174,6 +171,14 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         return false
+    }
+    
+    func handleSearch() {
+        if !self.searchTextField.text!.isEmpty {
+            self.getProductsBySearchTerm(searchTerm: self.searchTextField.text!)
+        } else {
+            self.getRecentProducts()
+        }
     }
     
     //MARK: Segue methods

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//Stylings
 func roundView(view: UIView, option: String) {
     view.layer.masksToBounds = true
     switch(option) {
@@ -21,4 +22,17 @@ func roundView(view: UIView, option: String) {
     default:
         return
     }
+}
+
+//Animations
+func animateButtonTap(btn: UIButton) {
+    UIView.animate(withDuration: 0.1,
+       animations: {
+        btn.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+    },
+       completion: { _ in
+        UIView.animate(withDuration: 0.1) {
+            btn.transform = CGAffineTransform.identity
+        }
+    })
 }

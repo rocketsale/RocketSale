@@ -121,7 +121,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func getRecentProducts() {
         ProductDBHelper.getMostRecentProducts(limit: 20) { (error, products) in
             if let error = error {
-                print(error.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not get most recent products", viewController: self)
             } else if products != nil {
                 self.products = products!
                 self.productTableView.reloadData()
@@ -133,7 +133,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func getProductsBySearchTerm(searchTerm: String) {
         ProductDBHelper.getProductsBySearchTerm(searchTerm: searchTerm, limit: 20) { (error, products) in
             if let error = error {
-                print(error.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not get products by search term", viewController: self)
             } else if products != nil {
                 self.products = products!
                 self.productTableView.reloadData()
@@ -145,9 +145,8 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func purchaseProduct(product: Product, indexPath: IndexPath) {
         ProductDBHelper.purchaseProduct(product: product) { (error, product) in
             if error != nil {
-                print(error?.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not purchase product", viewController: self)
             } else if product != nil{
-                print(product)
                 self.products[indexPath.row] = product!
                 self.productTableView.reloadData()
             }
@@ -157,7 +156,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func favoriteProduct(product: Product, indexPath: IndexPath) {
         ProductDBHelper.favoriteProduct(product: product) { (error, product) in
             if let error = error {
-                print(error.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not favorite product", viewController: self)
             } else if product != nil {
                 self.products[indexPath.row] = product!
                 self.productTableView.reloadData()
@@ -169,7 +168,6 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func isProductFavorited(users: [User]?) -> Bool {
         if let users = users {
             for user in users {
-                print(user)
                 if user.objectId! == PFUser.current()?.objectId! {
                     return true
                 }

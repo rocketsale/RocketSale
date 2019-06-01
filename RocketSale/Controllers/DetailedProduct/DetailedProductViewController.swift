@@ -62,7 +62,7 @@ class DetailedProductViewController: UIViewController {
     func purchaseProduct(product: Product) {
         ProductDBHelper.purchaseProduct(product: product) { (error, product) in
             if error != nil {
-                print(error?.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not purchase product", viewController: self)
             } else if product != nil{
                 self.product = product
                 self.setProductData()

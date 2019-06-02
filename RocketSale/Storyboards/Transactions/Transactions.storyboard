@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NMn-8y-GC7" userLabel="Products Table View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionsProductCell" rowHeight="126" id="Q9i-vy-06c" customClass="TransactionsProductCell" customModule="RocketSale" customModuleProvider="target">
@@ -102,31 +102,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Pn-ai-8TH">
+                                <rect key="frame" x="8" y="76" width="359" height="29"/>
+                                <color key="backgroundColor" red="0.80784313725490198" green="0.066666666666666666" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Bought"/>
+                                    <segment title="Sold"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="indexChanged:" destination="ClH-pY-vJX" eventType="valueChanged" id="nLk-4M-CYR"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NMn-8y-GC7" firstAttribute="bottom" secondItem="M2C-wk-CBC" secondAttribute="bottom" id="42M-Tc-rom"/>
-                            <constraint firstItem="NMn-8y-GC7" firstAttribute="top" secondItem="637-JM-ZHb" secondAttribute="top" id="YbQ-2l-iXq"/>
+                            <constraint firstItem="2Pn-ai-8TH" firstAttribute="centerX" secondItem="637-JM-ZHb" secondAttribute="centerX" id="C9a-MQ-HV7"/>
+                            <constraint firstItem="M2C-wk-CBC" firstAttribute="trailing" secondItem="2Pn-ai-8TH" secondAttribute="trailing" constant="8" id="esp-Uz-7YX"/>
+                            <constraint firstItem="2Pn-ai-8TH" firstAttribute="leading" secondItem="M2C-wk-CBC" secondAttribute="leading" constant="8" id="fUD-WK-sgs"/>
+                            <constraint firstItem="2Pn-ai-8TH" firstAttribute="top" secondItem="M2C-wk-CBC" secondAttribute="top" constant="12" id="h2F-8A-taD"/>
                             <constraint firstItem="NMn-8y-GC7" firstAttribute="trailing" secondItem="M2C-wk-CBC" secondAttribute="trailing" id="lJq-2k-BF1"/>
                             <constraint firstItem="NMn-8y-GC7" firstAttribute="leading" secondItem="M2C-wk-CBC" secondAttribute="leading" id="u8W-mb-tiE"/>
+                            <constraint firstItem="NMn-8y-GC7" firstAttribute="top" secondItem="2Pn-ai-8TH" secondAttribute="bottom" constant="12" id="yLT-Vg-YGm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M2C-wk-CBC"/>
                     </view>
                     <navigationItem key="navigationItem" id="guw-6d-bn2">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="2Pn-ai-8TH">
-                            <rect key="frame" x="99.5" y="7" width="176" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="All"/>
-                                <segment title="Bought"/>
-                                <segment title="Sold"/>
-                            </segments>
-                            <color key="tintColor" red="0.90980392156862744" green="0.12941176470588234" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="indexChanged:" destination="ClH-pY-vJX" eventType="valueChanged" id="nLk-4M-CYR"/>
-                            </connections>
-                        </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="productsTableView" destination="NMn-8y-GC7" id="6hu-Om-9FK"/>

@@ -23,32 +23,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         makeProfilePicRounded()
-        updateUserInformation()
+        getUserFields()
     }
     
-    func makeDummyUser(_email: String, _password: String){
-        UserDBHelper.createNewUser(email: _email, password: _password) { (error) in
-            if let error = error {
-                print("ERROR: \(error.localizedDescription)")
-            }
-            else {
-                print("User created")
-            }
-        }
-    }
     
-    func fillDummyUser(_email: String) {
-        UserDBHelper.initializeUserAccountInformation(email: _email, phoneNumber: "4081234567", description: "Tester", interests: ["food", "skateboarding"], profilePicture: nil) { (error) in
-            if let error = error {
-                 print("ERROR: \(error.localizedDescription)")
-            }
-            else{
-                print("User info updated")
-            }
-        }
-    }
-    
-    func updateUserInformation() {
+    func getUserFields() {
         UserDBHelper.getUser(email: (PFUser.current()?.email)!) { (error, user) in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
@@ -92,6 +71,7 @@ class ProfileViewController: UIViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.window?.rootViewController = loginVC
     }
+    
     
     //MARK: Style methods
     func makeProfilePicRounded() {

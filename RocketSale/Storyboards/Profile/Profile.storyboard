@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-Dl-f0e">
-                                <rect key="frame" x="8" y="220.5" width="78.5" height="21"/>
+                                <rect key="frame" x="8" y="311.5" width="78.5" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="About Me">
                                         <attributes>
@@ -58,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTt-H6-itg">
-                                <rect key="frame" x="8" y="311.5" width="71.5" height="21"/>
+                                <rect key="frame" x="8" y="220.5" width="71.5" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Interests">
                                         <attributes>
@@ -82,13 +82,35 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="uhih" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rVg-pT-2IF" userLabel="Bio Text Field">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Basketball, soccer, etc" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PSK-eP-JgP" userLabel="Interests Text Field">
                                 <rect key="frame" x="16" y="257.5" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Basketball, soccer, etc" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PSK-eP-JgP" userLabel="Interests Text Field">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPj-qy-h3e">
+                                <rect key="frame" x="152.5" y="468.5" width="70" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="CCV-hk-a7s"/>
+                                    <constraint firstAttribute="height" constant="30" id="XFg-lv-R5h"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Update">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="onUpdate:" destination="l6L-Xx-8oh" eventType="touchUpInside" id="5ce-mG-6Fq"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="uhih" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rVg-pT-2IF" userLabel="Bio Text Field">
                                 <rect key="frame" x="16" y="348.5" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -98,33 +120,42 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Udz-vh-cco" firstAttribute="centerY" secondItem="SIN-Yu-VMr" secondAttribute="centerY" constant="-250" id="436-xo-LrA"/>
-                            <constraint firstItem="rVg-pT-2IF" firstAttribute="top" secondItem="GVo-Dl-f0e" secondAttribute="bottom" constant="16" id="Aa6-FF-UAl"/>
                             <constraint firstItem="Udz-vh-cco" firstAttribute="centerX" secondItem="SIN-Yu-VMr" secondAttribute="centerX" id="B9Z-jO-Jh5"/>
-                            <constraint firstItem="GVo-Dl-f0e" firstAttribute="top" secondItem="xVG-pY-d5S" secondAttribute="bottom" constant="24" id="C5U-Zh-X3f"/>
+                            <constraint firstItem="o3w-2o-N98" firstAttribute="trailing" secondItem="rVg-pT-2IF" secondAttribute="trailing" constant="16" id="Bg9-tf-Q7V"/>
                             <constraint firstItem="xVG-pY-d5S" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="CID-44-gpB"/>
-                            <constraint firstItem="o3w-2o-N98" firstAttribute="trailing" secondItem="PSK-eP-JgP" secondAttribute="trailing" constant="16" id="DRE-xR-dpJ"/>
-                            <constraint firstItem="rVg-pT-2IF" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="Fpc-Et-J9Y"/>
-                            <constraint firstItem="PSK-eP-JgP" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="G0h-eX-Lg2"/>
-                            <constraint firstItem="PSK-eP-JgP" firstAttribute="top" secondItem="HTt-H6-itg" secondAttribute="bottom" constant="16" id="LyT-pe-NC9"/>
-                            <constraint firstItem="GVo-Dl-f0e" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="P3D-1N-h5y"/>
-                            <constraint firstItem="o3w-2o-N98" firstAttribute="trailing" secondItem="rVg-pT-2IF" secondAttribute="trailing" constant="16" id="c2m-Ga-d1l"/>
+                            <constraint firstItem="rVg-pT-2IF" firstAttribute="top" secondItem="GVo-Dl-f0e" secondAttribute="bottom" constant="16" id="GOp-KX-WTs"/>
+                            <constraint firstItem="rVg-pT-2IF" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="KGD-G3-aYW"/>
+                            <constraint firstItem="GVo-Dl-f0e" firstAttribute="top" secondItem="PSK-eP-JgP" secondAttribute="bottom" constant="24" id="ZEe-Ph-pd8"/>
+                            <constraint firstItem="PSK-eP-JgP" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="fv1-VW-swU"/>
                             <constraint firstItem="ap3-Mj-SqF" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="gMy-53-733"/>
                             <constraint firstItem="ap3-Mj-SqF" firstAttribute="top" secondItem="Udz-vh-cco" secondAttribute="bottom" constant="32" id="jS1-sb-Sc3"/>
-                            <constraint firstItem="HTt-H6-itg" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="k3n-0H-qEi"/>
+                            <constraint firstItem="HTt-H6-itg" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="jZN-ip-ywi"/>
+                            <constraint firstItem="UPj-qy-h3e" firstAttribute="centerX" secondItem="SIN-Yu-VMr" secondAttribute="centerX" id="kpv-cw-AOd"/>
+                            <constraint firstItem="GVo-Dl-f0e" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="lm4-k1-KVv"/>
                             <constraint firstItem="xVG-pY-d5S" firstAttribute="top" secondItem="ap3-Mj-SqF" secondAttribute="bottom" constant="16" id="ngo-4c-ZlC"/>
-                            <constraint firstItem="HTt-H6-itg" firstAttribute="top" secondItem="rVg-pT-2IF" secondAttribute="bottom" constant="24" id="sjg-WN-VrX"/>
+                            <constraint firstItem="HTt-H6-itg" firstAttribute="top" secondItem="xVG-pY-d5S" secondAttribute="bottom" constant="24" id="v4h-Eq-g4h"/>
+                            <constraint firstItem="UPj-qy-h3e" firstAttribute="top" secondItem="rVg-pT-2IF" secondAttribute="bottom" constant="90" id="xAg-M7-Xyb"/>
+                            <constraint firstItem="PSK-eP-JgP" firstAttribute="top" secondItem="HTt-H6-itg" secondAttribute="bottom" constant="16" id="xF4-xc-CD2"/>
+                            <constraint firstItem="o3w-2o-N98" firstAttribute="trailing" secondItem="PSK-eP-JgP" secondAttribute="trailing" constant="16" id="zkd-JD-J8j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o3w-2o-N98"/>
                     </view>
+                    <connections>
+                        <outlet property="bioTextField" destination="rVg-pT-2IF" id="Jnd-yQ-7hb"/>
+                        <outlet property="interestsTextField" destination="PSK-eP-JgP" id="kHp-hv-sZs"/>
+                        <outlet property="phoneNumTextField" destination="xVG-pY-d5S" id="aUJ-EA-gNs"/>
+                        <outlet property="updateButton" destination="UPj-qy-h3e" id="4ab-h0-Viq"/>
+                        <segue destination="kwX-OK-AnL" kind="show" identifier="editProfileToProfile" id="5Bp-gN-HIa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C6M-v8-CGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2753" y="3521"/>
+            <point key="canvasLocation" x="3134" y="3521"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="ugW-nF-nAd">
             <objects>
-                <viewController id="kwX-OK-AnL" customClass="ProfileViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="kwX-OK-AnL" customClass="ProfileViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w1c-T1-De1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,19 +218,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxc-NC-2An">
-                                <rect key="frame" x="16" y="491.5" width="343" height="17.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Profile Description">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-vd-hrF">
                                 <rect key="frame" x="16" y="436" width="63" height="18"/>
                                 <attributedString key="attributedText">
@@ -239,28 +257,56 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hns-25-Yl0">
+                                <rect key="frame" x="16" y="491.5" width="70" height="18"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="About Me">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxc-NC-2An">
+                                <rect key="frame" x="24" y="517.5" width="335" height="17.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Profile Description">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="G54-RD-n9F" firstAttribute="top" secondItem="3Z0-IP-onM" secondAttribute="bottom" constant="8" id="14m-u9-axq"/>
-                            <constraint firstItem="grP-g0-o7N" firstAttribute="trailing" secondItem="cxc-NC-2An" secondAttribute="trailing" constant="16" id="1J4-YJ-Lbi"/>
                             <constraint firstItem="c2M-gu-p3L" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="16" id="2GC-ya-a8r"/>
+                            <constraint firstItem="cxc-NC-2An" firstAttribute="top" secondItem="hns-25-Yl0" secondAttribute="bottom" constant="8" id="3Ju-Y9-dbE"/>
                             <constraint firstItem="3Z0-IP-onM" firstAttribute="centerY" secondItem="w1c-T1-De1" secondAttribute="centerY" constant="-135" id="5XE-Te-QYg"/>
                             <constraint firstItem="s2U-Pf-Ehk" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="16" id="9jE-3R-fbx"/>
-                            <constraint firstItem="cxc-NC-2An" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="16" id="BeU-F3-sfV"/>
                             <constraint firstItem="tmt-vd-hrF" firstAttribute="top" secondItem="dWu-3f-lB1" secondAttribute="bottom" constant="12" id="D6Z-5E-qWM"/>
                             <constraint firstItem="dWu-3f-lB1" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="24" id="Efp-Na-z8K"/>
+                            <constraint firstItem="hns-25-Yl0" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="16" id="Evn-j6-2bD"/>
+                            <constraint firstItem="cxc-NC-2An" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="24" id="Jzy-6s-4AQ"/>
                             <constraint firstItem="c2M-gu-p3L" firstAttribute="top" secondItem="G54-RD-n9F" secondAttribute="bottom" constant="32.5" id="Pfo-by-TaY"/>
                             <constraint firstItem="grP-g0-o7N" firstAttribute="trailing" secondItem="wFG-kb-QBE" secondAttribute="trailing" constant="16" id="QK8-4D-ndw"/>
                             <constraint firstItem="s2U-Pf-Ehk" firstAttribute="top" secondItem="MBP-st-NBL" secondAttribute="bottom" constant="12" id="QbV-vW-hjK"/>
+                            <constraint firstItem="hns-25-Yl0" firstAttribute="top" secondItem="wFG-kb-QBE" secondAttribute="bottom" constant="12" id="UXf-yK-oJH"/>
                             <constraint firstItem="tmt-vd-hrF" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="16" id="Ujc-a0-sf3"/>
                             <constraint firstItem="MBP-st-NBL" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="24" id="XJX-so-sCU"/>
                             <constraint firstItem="wFG-kb-QBE" firstAttribute="leading" secondItem="grP-g0-o7N" secondAttribute="leading" constant="24" id="b5G-jV-6mb"/>
                             <constraint firstItem="wFG-kb-QBE" firstAttribute="top" secondItem="tmt-vd-hrF" secondAttribute="bottom" constant="8" id="ccW-jh-k7n"/>
                             <constraint firstItem="3Z0-IP-onM" firstAttribute="centerX" secondItem="w1c-T1-De1" secondAttribute="centerX" id="k9G-iL-meh"/>
-                            <constraint firstItem="cxc-NC-2An" firstAttribute="top" secondItem="wFG-kb-QBE" secondAttribute="bottom" constant="12" id="uP0-x9-3As"/>
                             <constraint firstItem="MBP-st-NBL" firstAttribute="top" secondItem="c2M-gu-p3L" secondAttribute="bottom" constant="8" id="usf-pq-fbv"/>
                             <constraint firstItem="G54-RD-n9F" firstAttribute="centerX" secondItem="w1c-T1-De1" secondAttribute="centerX" id="w1S-fF-6Tl"/>
+                            <constraint firstItem="grP-g0-o7N" firstAttribute="trailing" secondItem="cxc-NC-2An" secondAttribute="trailing" constant="16" id="xSj-pc-UdJ"/>
                             <constraint firstItem="dWu-3f-lB1" firstAttribute="top" secondItem="s2U-Pf-Ehk" secondAttribute="bottom" constant="8" id="zg7-Ag-bss"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="grP-g0-o7N"/>
@@ -273,7 +319,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit Profile" id="zKS-ek-Ks1">
                             <connections>
-                                <segue destination="l6L-Xx-8oh" kind="show" id="0ZE-Sh-D3r"/>
+                                <segue destination="l6L-Xx-8oh" kind="show" identifier="" id="0ZE-Sh-D3r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -313,4 +359,7 @@
     <resources>
         <image name="default-profile-icon-24" width="600" height="600"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5Bp-gN-HIa"/>
+    </inferredMetricsTieBreakers>
 </document>

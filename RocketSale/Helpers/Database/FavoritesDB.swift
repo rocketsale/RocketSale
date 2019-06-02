@@ -33,5 +33,7 @@ class FavoritesDBHelper {
         })
     }
     
-    //MARK: Update methods
+    //MARK: Delete method
+   
+    
 }

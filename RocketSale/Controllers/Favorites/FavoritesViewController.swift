@@ -20,7 +20,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         favoritesTableView.delegate = self
         favoritesTableView.dataSource = self
-        
         getFavoriteProducts()
         setupRefreshControl()
     }
@@ -53,6 +52,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell") as! FavoritesCell
+        cell.delegate = self
        
         if favoriteProducts[indexPath.row].picture != nil {
             let productImageFile = favoriteProducts[indexPath.row].picture
@@ -82,7 +82,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     func onBuyButton(cell: FavoritesCell) {
-        print("here")
+        print("At FavoritesVC Buy")
         let indexPath = self.favoritesTableView.indexPath(for: cell)!
         let chosenProduct = favoriteProducts[indexPath.row]
         purchaseProduct(product: chosenProduct, indexPath: indexPath)
@@ -92,20 +92,44 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     func purchaseProduct(product: Product, indexPath: IndexPath) {
         ProductDBHelper.purchaseProduct(product: product) { (error, product) in
             if error != nil {
-                print(error?.localizedDescription)
+                print("Purchase Product Error: \(error?.localizedDescription)")
             } else if product != nil{
                 self.favoriteProducts[indexPath.row] = product!
-                
                 //MARK: After buying remove from favorite list
                 self.favoriteProducts.remove(at: indexPath.row)
-
                 self.favoritesTableView.reloadData()
             }
         }
     }
     
     
-    //MARK: Segue to Ryan Luu's DetailedProductScreen
+    func onUnFavorite(cell: FavoritesCell) {
+        let indexPath = self.favoritesTableView.indexPath(for: cell)!
+        let chosenProduct = favoriteProducts[indexPath.row]
+        unFavoriteProduct(product: chosenProduct, indexPath: indexPath)
+    }
+    
+    
+    //MARK: Only removes from array, need to update db
+    func unFavoriteProduct(product: Product, indexPath: IndexPath) {
+//        FavoritesDBHelper.unfavoriteProduct(product: product) { (error, product) in
+//            if error != nil {
+//                print("UnFavorite Product Error: \(error?.localizedDescription)")
+//            } else if product != nil{
+//                self.favoriteProducts[indexPath.row] = product!
+//                //MARK: After unFavoriting remove from favorite list
+//                self.favoriteProducts.remove(at: indexPath.row)
+//                self.favoritesTableView.reloadData()
+//            }
+//        }
+    
+        //MARK: After unFavoriting remove from favorite list
+        self.favoriteProducts.remove(at: indexPath.row)
+        self.favoritesTableView.reloadData()
+    }
+
+    
+    //TODO: Segue to Ryan Luu's DetailedProductScreen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let clickedCell = sender as! UITableViewCell
         let indexPath = favoritesTableView.indexPath(for: clickedCell)!

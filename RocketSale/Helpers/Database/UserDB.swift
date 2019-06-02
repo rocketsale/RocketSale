@@ -88,5 +88,28 @@ class UserDBHelper {
         })
     }
     
+    //MARK: change so user can upload new profile pic
+    static func updateUserAccountInformation(email: String, phoneNumber: String, description: String, interests: [String], completion: @escaping ((_ error: Error?) -> Void)) {
+        let query = User.query()
+        query?.whereKey("email", equalTo: email)
+        query?.getFirstObjectInBackground(block: { (user, error) in
+            if let error = error {
+                completion(error)
+            } else {
+                let user = user as? User
+                user?.phoneNumber = phoneNumber
+                user?.profileDescription = description
+                user?.interests = interests
+                user?.saveInBackground(block: { (success, error) in
+                    if let error = error {
+                        completion(error)
+                    } else {
+                        completion(nil)
+                    }
+                })
+            }
+        })
+    }
+    
     //MARK: Delete methods
 }

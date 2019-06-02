@@ -10,6 +10,117 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="znz-Md-Ix8">
+            <objects>
+                <viewController id="l6L-Xx-8oh" customClass="EditProfileViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SIN-Yu-VMr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udz-vh-cco">
+                                <rect key="frame" x="124.5" y="69" width="126" height="29"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Edit Profile">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap3-Mj-SqF">
+                                <rect key="frame" x="8" y="130" width="121.5" height="20.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Phone Number">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-Dl-f0e">
+                                <rect key="frame" x="8" y="220.5" width="78.5" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="About Me">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTt-H6-itg">
+                                <rect key="frame" x="8" y="311.5" width="71.5" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Interests">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xVG-pY-d5S" userLabel="Phone # Text Field">
+                                <rect key="frame" x="16" y="166.5" width="120.5" height="30"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0123456789">
+                                        <attributes>
+                                            <font key="NSFont" size="19" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="uhih" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rVg-pT-2IF" userLabel="Bio Text Field">
+                                <rect key="frame" x="16" y="257.5" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Basketball, soccer, etc" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PSK-eP-JgP" userLabel="Interests Text Field">
+                                <rect key="frame" x="16" y="348.5" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Udz-vh-cco" firstAttribute="centerY" secondItem="SIN-Yu-VMr" secondAttribute="centerY" constant="-250" id="436-xo-LrA"/>
+                            <constraint firstItem="rVg-pT-2IF" firstAttribute="top" secondItem="GVo-Dl-f0e" secondAttribute="bottom" constant="16" id="Aa6-FF-UAl"/>
+                            <constraint firstItem="Udz-vh-cco" firstAttribute="centerX" secondItem="SIN-Yu-VMr" secondAttribute="centerX" id="B9Z-jO-Jh5"/>
+                            <constraint firstItem="GVo-Dl-f0e" firstAttribute="top" secondItem="xVG-pY-d5S" secondAttribute="bottom" constant="24" id="C5U-Zh-X3f"/>
+                            <constraint firstItem="xVG-pY-d5S" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="CID-44-gpB"/>
+                            <constraint firstItem="o3w-2o-N98" firstAttribute="trailing" secondItem="PSK-eP-JgP" secondAttribute="trailing" constant="16" id="DRE-xR-dpJ"/>
+                            <constraint firstItem="rVg-pT-2IF" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="Fpc-Et-J9Y"/>
+                            <constraint firstItem="PSK-eP-JgP" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="16" id="G0h-eX-Lg2"/>
+                            <constraint firstItem="PSK-eP-JgP" firstAttribute="top" secondItem="HTt-H6-itg" secondAttribute="bottom" constant="16" id="LyT-pe-NC9"/>
+                            <constraint firstItem="GVo-Dl-f0e" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="P3D-1N-h5y"/>
+                            <constraint firstItem="o3w-2o-N98" firstAttribute="trailing" secondItem="rVg-pT-2IF" secondAttribute="trailing" constant="16" id="c2m-Ga-d1l"/>
+                            <constraint firstItem="ap3-Mj-SqF" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="gMy-53-733"/>
+                            <constraint firstItem="ap3-Mj-SqF" firstAttribute="top" secondItem="Udz-vh-cco" secondAttribute="bottom" constant="32" id="jS1-sb-Sc3"/>
+                            <constraint firstItem="HTt-H6-itg" firstAttribute="leading" secondItem="o3w-2o-N98" secondAttribute="leading" constant="8" id="k3n-0H-qEi"/>
+                            <constraint firstItem="xVG-pY-d5S" firstAttribute="top" secondItem="ap3-Mj-SqF" secondAttribute="bottom" constant="16" id="ngo-4c-ZlC"/>
+                            <constraint firstItem="HTt-H6-itg" firstAttribute="top" secondItem="rVg-pT-2IF" secondAttribute="bottom" constant="24" id="sjg-WN-VrX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o3w-2o-N98"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C6M-v8-CGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2753" y="3521"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="ugW-nF-nAd">
             <objects>
@@ -155,9 +266,14 @@
                         <viewLayoutGuide key="safeArea" id="grP-g0-o7N"/>
                     </view>
                     <navigationItem key="navigationItem" id="Um5-fl-iNy">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="HnJ-bd-TnE">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="HnJ-bd-TnE">
                             <connections>
                                 <action selector="onLogout:" destination="kwX-OK-AnL" id="K2w-t1-WtO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit Profile" id="zKS-ek-Ks1">
+                            <connections>
+                                <segue destination="l6L-Xx-8oh" kind="show" id="0ZE-Sh-D3r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

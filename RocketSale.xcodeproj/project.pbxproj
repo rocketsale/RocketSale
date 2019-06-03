@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		090F8EE0228BD68D007325B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8EDF228BD68D007325B9 /* AppDelegate.swift */; };
 		090F8EE5228BD68D007325B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE3228BD68D007325B9 /* Main.storyboard */; };
-		090F8EE7228BD692007325B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE6228BD692007325B9 /* Assets.xcassets */; };
 		090F8EEA228BD692007325B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE8228BD692007325B9 /* LaunchScreen.storyboard */; };
 		090F8EF5228BD692007325B9 /* RocketSaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8EF4228BD692007325B9 /* RocketSaleTests.swift */; };
 		090F8F00228BD692007325B9 /* RocketSaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8EFF228BD692007325B9 /* RocketSaleUITests.swift */; };
@@ -43,6 +42,7 @@
 		090F8F982291382C007325B9 /* FavoritesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F972291382C007325B9 /* FavoritesDB.swift */; };
 		091CF71122A31C3F00D215D2 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF71022A31C3F00D215D2 /* BaseAlertController.swift */; };
 		09329AB722A0F5B500B5CC54 /* StyleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329AB622A0F5B500B5CC54 /* StyleHelpers.swift */; };
+		443FA77222A4C163007E69A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE6228BD692007325B9 /* Assets.xcassets */; };
 		5087F20058D6635A0874A0AE /* Pods_RocketSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB391F459AD892B929DA1EF8 /* Pods_RocketSale.framework */; };
 		544BF7B322A38D3B00A5FEE7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BF7B222A38D3B00A5FEE7 /* EditProfileViewController.swift */; };
 		5491FC0E229DB22E00530233 /* TransactionsProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491FC0D229DB22E00530233 /* TransactionsProductCell.swift */; };
@@ -759,8 +759,8 @@
 				090F8F71228BEAE8007325B9 /* Products.storyboard in Resources */,
 				090F8EEA228BD692007325B9 /* LaunchScreen.storyboard in Resources */,
 				090F8F7B228BED7C007325B9 /* Favorites.storyboard in Resources */,
-				090F8EE7228BD692007325B9 /* Assets.xcassets in Resources */,
 				090F8EE5228BD68D007325B9 /* Main.storyboard in Resources */,
+				443FA77222A4C163007E69A3 /* Assets.xcassets in Resources */,
 				090F8F7D228BEDA8007325B9 /* Profile.storyboard in Resources */,
 				090F8F79228BECDF007325B9 /* Transactions.storyboard in Resources */,
 			);

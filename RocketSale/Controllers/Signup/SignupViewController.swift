@@ -14,6 +14,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var confirmPasswordField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        ProductDBHelper.createNewProduct(name: "book", blurb: "very entertaining", price: 10.50, picture: nil, tags: nil) {
@@ -25,28 +26,59 @@ class SignupViewController: UIViewController {
 //            }
 //        }
     }
+    
     @IBAction func onSignUp(_ sender: Any) {
-        var user = PFUser()
-        user.username = usernameField.text
-        user.password = passwordField.text
-        user.email = emailField.text
-        user.signUpInBackground { (success, error) in
-            if success{
-                self.performSegue(withIdentifier: "loginToAccountInfo", sender: nil)
-            } else {
-                print("Error: \(error?.localizedDescription)")
+        var msg = ""
+        if usernameField.text == ""{
+            msg = "Please enter a username."
+            callError(msg)
+        } else if emailField.text == ""{
+            msg = "Please enter an email."
+            callError(msg)
+        } else if passwordField.text == ""{
+            msg = "Please enter a password."
+            callError(msg)
+        } else if confirmPasswordField.text == ""{
+            msg = "Please confirm your password."
+            callError(msg)
+        } else if passwordField.text != confirmPasswordField.text {
+            msg = "You have entered different passwords."
+            callError(msg)
+        } else {
+            let user = PFUser()
+            user.username = usernameField.text
+            user.password = passwordField.text
+            user.email = emailField.text
+            user.signUpInBackground { (success, error) in
+                if success{
+                    self.signUpNewUser(self.usernameField.text!, userPassword: self.passwordField.text!)
+                    self.performSegue(withIdentifier: "loginToAccountInfo", sender: nil)
+                } else {
+                    print("Error: \(error?.localizedDescription)")
+                }
             }
         }
     }
     
-//    func signUpNewUser() {
-//        UserDBHelper.createNewUser(email: "ryan@uci.edu", password: "yeeet") {
-//            error in
-//            if let error = error {
-//                print(error)
-//            } else {
-//                print("we good")
-//            }
-//        }
-//    }
+    func callError(_ msg: String) {
+        let err = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
+        err.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(err, animated:true)
+    }
+    
+    func signUpNewUser(_ userEmail: String, userPassword: String) {
+        UserDBHelper.createNewUser(email: userEmail, password: userPassword) {
+            error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is AccountInformationViewController{
+            let vc = segue.destination as? AccountInformationViewController
+            vc?.userEmail = emailField.text!
+        }
+    }
 }

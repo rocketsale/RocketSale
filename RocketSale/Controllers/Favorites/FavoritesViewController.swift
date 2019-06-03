@@ -112,20 +112,20 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: Only removes from array, need to update db
     func unFavoriteProduct(product: Product, indexPath: IndexPath) {
-//        FavoritesDBHelper.unfavoriteProduct(product: product) { (error, product) in
-//            if error != nil {
-//                print("UnFavorite Product Error: \(error?.localizedDescription)")
-//            } else if product != nil{
-//                self.favoriteProducts[indexPath.row] = product!
-//                //MARK: After unFavoriting remove from favorite list
-//                self.favoriteProducts.remove(at: indexPath.row)
-//                self.favoritesTableView.reloadData()
-//            }
-//        }
+        FavoritesDBHelper.unFavoriteProduct(selectedProduct: product) { (error, product) in
+            if error != nil {
+                print("UnFavorite Product Error: \(error?.localizedDescription)")
+            } else if product != nil{
+                self.favoriteProducts[indexPath.row] = product!
+                //MARK: After unFavoriting remove from favorite list
+                self.favoriteProducts.remove(at: indexPath.row)
+                self.favoritesTableView.reloadData()
+            }
+        }
     
-        //MARK: After unFavoriting remove from favorite list
-        self.favoriteProducts.remove(at: indexPath.row)
-        self.favoritesTableView.reloadData()
+//        //MARK: After unFavoriting remove from favorite list
+//        self.favoriteProducts.remove(at: indexPath.row)
+//        self.favoritesTableView.reloadData()
     }
 
     

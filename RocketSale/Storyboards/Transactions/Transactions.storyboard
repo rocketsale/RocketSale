@@ -20,7 +20,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NMn-8y-GC7" userLabel="Products Table View">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionsProductCell" rowHeight="126" id="Q9i-vy-06c" customClass="TransactionsProductCell" customModule="RocketSale" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="126"/>
@@ -80,6 +80,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="2r2-jx-bOD" firstAttribute="top" secondItem="nsv-2X-W8i" secondAttribute="bottom" constant="8" id="TTn-5I-UeX"/>
                                                 <constraint firstItem="nsv-2X-W8i" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="topMargin" constant="8" id="Zu1-oy-0Ux"/>

@@ -25,7 +25,7 @@ class TransactionsDBHelper {
                 
                 //Only add products sold by the currrent user
                 for product in products {
-                    if product.seller == PFUser.current() {
+                    if product.seller?.objectId == PFUser.current()?.objectId {
                         if product.isPurchased{
                             soldProducts.append(product)
                         }
@@ -36,6 +36,9 @@ class TransactionsDBHelper {
             }
         })
     }
+    
+    
+  
 }
 
 

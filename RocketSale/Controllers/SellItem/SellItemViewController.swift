@@ -19,15 +19,26 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        roundFieldCorners()
+        setStyles()
+        slideFieldsIn()
     }
     
     //MARK: Styling methods
-    func roundFieldCorners() {
-        productBlurbLabel.layer.cornerRadius = 5
-        productBlurbLabel.layer.masksToBounds = true
-        productImageView.layer.cornerRadius = 5
-        productBlurbLabel.layer.masksToBounds = true
+    func setStyles() {
+        roundView(view: productBlurbLabel, option: "default")
+        roundView(view: productImageView, option: "default")
+    }
+    
+    func slideFieldsIn() {
+        UIView.animate(withDuration: 0.5, delay: 0.4,
+           options: [],
+           animations: {
+            self.productImageView.center.x += self.view.bounds.width;
+            self.productNameLabel.center.x += self.view.bounds.width;
+            self.productPriceLabel.center.x += self.view.bounds.width;
+            self.productBlurbLabel.center.x += self.view.bounds.width;
+            self.productTagsLabel.center.x += self.view.bounds.width;
+        }, completion: nil)
     }
     
     //MARK: Database interaction methods
@@ -35,10 +46,9 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
         ProductDBHelper.createNewProduct(name: name, blurb: blurb, price: price, picture: picture, tags: tags) {
             error in
             if let error = error {
-                print(error)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not create new product", viewController: self)
             } else {
                 self.dismiss(animated: true, completion: nil)
-                print("yep saved a new product")
             }
         }
     }
@@ -59,11 +69,7 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
             createNewProductForSale(name: productName, blurb: productBlurb, price: productPrice, picture: productImage, tags: productTags)
         } else {
             //TODO: Refactor into a shared view
-            let alertController = UIAlertController(title: "DayTrip", message:
-                "Inputs cannot be empty. Price must be in the proper format", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-            
-            self.present(alertController, animated: true, completion: nil)
+            BaseAlertController.displayErrorMessage(errorMsg: "Inputs cannot be empty. Price must be in the proper format", viewController: self)
         }
     }
     
@@ -71,11 +77,13 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
+        
         if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
             picker.sourceType = .camera
         } else {
             picker.sourceType = .photoLibrary
         }
+        
         present(picker, animated: true, completion: nil)
     }
     
@@ -107,11 +115,11 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
             let file = PFFileObject(data: imageData)
             return file!
         }
+        
         return nil
     }
     
     func validateFormInputs(name: String, blurb: String, priceString: String, tagString: String) -> Bool {
-        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         let number = formatter.number(from: priceString)

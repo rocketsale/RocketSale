@@ -23,9 +23,9 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         productTableView.delegate = self
         productTableView.dataSource = self
-        roundButtonCorners()
-        getRecentProducts()
+        setStyles()
         setupRefreshControl()
+        getRecentProducts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,9 +36,8 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     //MARK: Styling methods
-    func roundButtonCorners() {
-        searchButton.layer.cornerRadius = 5
-        searchButton.layer.masksToBounds = true
+    func setStyles() {
+        roundView(view: searchButton, option: "default")
     }
     
     //MARK: Data reload methods
@@ -59,31 +58,45 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         cell.productName.text = products[indexPath.row].name
         cell.productBlurb.text = products[indexPath.row].blurb
         cell.productPrice.text = String(format: "$%.02f", products[indexPath.row].price)
-        
-        if products[indexPath.row].picture != nil {
-            let urlString = products[indexPath.row].picture!.url!
+        setCellPicture(picture: products[indexPath.row].picture, cell: cell)
+        setCellPurchasedStatus(isPurchased: products[indexPath.row].isPurchased, cell: cell)
+        setCellFavoritedStatus(favoritedUsers: products[indexPath.row].favoritedUser, cell: cell)
+        return cell
+    }
+    
+    func setCellPicture(picture: PFFileObject?, cell: ProductCell) {
+        if picture != nil {
+            let urlString = picture!.url!
             let url = URL(string: urlString)
             cell.productImageView.af_setImage(withURL: url!)
         }
-        
-        if products[indexPath.row].isPurchased == true {
+    }
+    
+    func setCellPurchasedStatus(isPurchased: Bool, cell: ProductCell) {
+        if isPurchased {
             cell.buyButton.isHidden = true
         } else {
             cell.buyButton.isHidden = false
         }
-        
-        if isProductFavorited(users: products[indexPath.row].favoritedUser) {
-            cell.favoriteButton.backgroundColor = UIColor.white
-        }
-        return cell
     }
     
-    @IBAction func onSearchTap(_ sender: Any) {
-        if !searchTextField.text!.isEmpty {
-            getProductsBySearchTerm(searchTerm: searchTextField.text!)
+    func setCellFavoritedStatus(favoritedUsers: [User]?, cell: ProductCell) {
+        if isProductFavorited(users: favoritedUsers) {
+            cell.favoriteButton.backgroundColor = UIColor.white
+            cell.favoriteButton.setTitleColor(.black, for: .normal)
+            cell.favoriteButton.setTitle("Liked", for: .normal)
         } else {
-            getRecentProducts()
+            cell.favoriteButton.backgroundColor = UIColor.init(red: 206/256, green: 17/256, blue: 65/256, alpha: 1)
+            cell.favoriteButton.setTitleColor(.white, for: .normal)
+            cell.favoriteButton.setTitle("Like", for: .normal)
         }
+    }
+    
+    
+    //MARK: Interactivity method
+    @IBAction func onSearchTap(_ sender: Any) {
+        animateButtonTap(btn: searchButton)
+        handleSearch()
     }
     
     func onBuyTap(cell: ProductCell) {
@@ -98,7 +111,6 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
         favoriteProduct(product: chosenProduct, indexPath: indexPath)
     }
     
-    //MARK: Interactivity method
     @IBAction func onSellTap(_ sender: Any) {
     }
     
@@ -106,7 +118,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func getRecentProducts() {
         ProductDBHelper.getMostRecentProducts(limit: 20) { (error, products) in
             if let error = error {
-                print(error.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not get most recent products", viewController: self)
             } else if products != nil {
                 self.products = products!
                 self.productTableView.reloadData()
@@ -118,7 +130,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func getProductsBySearchTerm(searchTerm: String) {
         ProductDBHelper.getProductsBySearchTerm(searchTerm: searchTerm, limit: 20) { (error, products) in
             if let error = error {
-                print(error.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not get products by search term", viewController: self)
             } else if products != nil {
                 self.products = products!
                 self.productTableView.reloadData()
@@ -130,9 +142,8 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func purchaseProduct(product: Product, indexPath: IndexPath) {
         ProductDBHelper.purchaseProduct(product: product) { (error, product) in
             if error != nil {
-                print(error?.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not purchase product", viewController: self)
             } else if product != nil{
-                print(product)
                 self.products[indexPath.row] = product!
                 self.productTableView.reloadData()
             }
@@ -142,7 +153,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func favoriteProduct(product: Product, indexPath: IndexPath) {
         ProductDBHelper.favoriteProduct(product: product) { (error, product) in
             if let error = error {
-                print(error.localizedDescription)
+                BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not favorite product", viewController: self)
             } else if product != nil {
                 self.products[indexPath.row] = product!
                 self.productTableView.reloadData()
@@ -154,12 +165,33 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     func isProductFavorited(users: [User]?) -> Bool {
         if let users = users {
             for user in users {
-                print(user)
                 if user.objectId! == PFUser.current()?.objectId! {
                     return true
                 }
             }
         }
         return false
+    }
+    
+    func handleSearch() {
+        if !self.searchTextField.text!.isEmpty {
+            self.getProductsBySearchTerm(searchTerm: self.searchTextField.text!)
+        } else {
+            self.getRecentProducts()
+        }
+    }
+    
+    //MARK: Segue methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Gets the exact array
+        if segue.identifier == "productDetailSegue" {
+            let senderCell = sender as! UITableViewCell
+            let indexPath = productTableView.indexPath(for: senderCell)!
+            let productData = products[indexPath.row]
+
+            //Passes data to detail view
+            let detailedProductFeedVC = segue.destination as! DetailedProductViewController
+            detailedProductFeedVC.product = productData
+        }
     }
 }

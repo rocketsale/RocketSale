@@ -25,20 +25,26 @@ class ProductCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setStyles()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func setStyles() {
+        roundView(view: productImageView, option: "default")
+        roundView(view: buyButton, option: "default")
+        roundView(view: favoriteButton, option: "default")
     }
 
     @IBAction func onFavoriteTap(_ sender: Any) {
+        animateButtonTap(btn: favoriteButton)
         delegate?.onFavoriteTap(cell: self)
     }
     
     @IBAction func onBuyTap(_ sender: Any) {
+        animateButtonTap(btn: buyButton)
         delegate?.onBuyTap(cell: self)
     }
 }

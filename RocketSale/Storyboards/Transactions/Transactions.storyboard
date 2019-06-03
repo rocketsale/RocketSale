@@ -18,27 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NMn-8y-GC7" userLabel="Products Table View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NMn-8y-GC7" userLabel="Products Table View">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionsProductCell" rowHeight="126" id="Q9i-vy-06c" customClass="TransactionsProductCell" customModule="RocketSale" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q9i-vy-06c" id="kkg-Gu-BKL">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q9i-vy-06c" id="kkg-Gu-BKL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kaa-pN-r53">
-                                                    <rect key="frame" x="23" y="19" width="90" height="88"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kaa-pN-r53">
+                                                    <rect key="frame" x="16" y="8" width="90" height="90"/>
                                                     <color key="backgroundColor" red="0.90980392160000001" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="sgU-pK-wGY"/>
+                                                        <constraint firstAttribute="height" constant="90" id="Qvg-Qj-JGy"/>
+                                                        <constraint firstAttribute="width" constant="90" id="VfQ-Nr-cFU"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsv-2X-W8i">
-                                                    <rect key="frame" x="121" y="19" width="117" height="21"/>
+                                                    <rect key="frame" x="114" y="19" width="117" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Product Name">
                                                             <attributes>
@@ -51,7 +51,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r2-jx-bOD">
-                                                    <rect key="frame" x="121" y="48" width="164" height="17.5"/>
+                                                    <rect key="frame" x="114" y="48" width="180" height="17.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="cV8-DH-VGY"/>
+                                                    </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Product description">
                                                             <attributes>
@@ -77,18 +80,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="2r2-jx-bOD" secondAttribute="bottom" constant="49.5" id="4sF-2U-ZYA"/>
-                                                <constraint firstItem="2r2-jx-bOD" firstAttribute="leading" secondItem="kaa-pN-r53" secondAttribute="trailing" constant="8" id="DeN-OU-0EG"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="2r2-jx-bOD" secondAttribute="trailing" constant="75" id="Dvu-EE-QV5"/>
-                                                <constraint firstItem="kaa-pN-r53" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="topMargin" constant="8" id="KwH-BM-fV6"/>
                                                 <constraint firstItem="2r2-jx-bOD" firstAttribute="top" secondItem="nsv-2X-W8i" secondAttribute="bottom" constant="8" id="TTn-5I-UeX"/>
                                                 <constraint firstItem="nsv-2X-W8i" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="topMargin" constant="8" id="Zu1-oy-0Ux"/>
                                                 <constraint firstItem="pUD-fo-TmA" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="topMargin" constant="8" id="b5q-Nj-XDa"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="kaa-pN-r53" secondAttribute="bottom" constant="8" id="bfh-rt-wTd"/>
-                                                <constraint firstItem="kaa-pN-r53" firstAttribute="leading" secondItem="kkg-Gu-BKL" secondAttribute="leadingMargin" constant="8" id="gph-ap-0Uv"/>
-                                                <constraint firstItem="nsv-2X-W8i" firstAttribute="leading" secondItem="kaa-pN-r53" secondAttribute="trailing" constant="8" id="hwf-yS-bMz"/>
+                                                <constraint firstItem="2r2-jx-bOD" firstAttribute="leading" secondItem="kaa-pN-r53" secondAttribute="trailing" constant="8" id="cmi-lI-fSP"/>
+                                                <constraint firstItem="kaa-pN-r53" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="top" constant="8" id="fuf-Y6-0fp"/>
+                                                <constraint firstAttribute="bottom" secondItem="kaa-pN-r53" secondAttribute="bottom" constant="8" id="iqs-nW-InR"/>
+                                                <constraint firstItem="nsv-2X-W8i" firstAttribute="leading" secondItem="kaa-pN-r53" secondAttribute="trailing" constant="8" id="mns-K8-ZyB"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="pUD-fo-TmA" secondAttribute="trailing" constant="8" id="thc-Mk-ZjW"/>
+                                                <constraint firstItem="kaa-pN-r53" firstAttribute="leading" secondItem="kkg-Gu-BKL" secondAttribute="leading" constant="16" id="uyw-N2-K6q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,25 +103,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Pn-ai-8TH">
+                                <rect key="frame" x="8" y="76" width="359" height="29"/>
+                                <color key="backgroundColor" red="0.80784313725490198" green="0.066666666666666666" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Bought"/>
+                                    <segment title="Sold"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="indexChanged:" destination="ClH-pY-vJX" eventType="valueChanged" id="nLk-4M-CYR"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NMn-8y-GC7" firstAttribute="bottom" secondItem="M2C-wk-CBC" secondAttribute="bottom" id="42M-Tc-rom"/>
+                            <constraint firstItem="2Pn-ai-8TH" firstAttribute="centerX" secondItem="637-JM-ZHb" secondAttribute="centerX" id="C9a-MQ-HV7"/>
+                            <constraint firstItem="M2C-wk-CBC" firstAttribute="trailing" secondItem="2Pn-ai-8TH" secondAttribute="trailing" constant="8" id="esp-Uz-7YX"/>
+                            <constraint firstItem="2Pn-ai-8TH" firstAttribute="leading" secondItem="M2C-wk-CBC" secondAttribute="leading" constant="8" id="fUD-WK-sgs"/>
+                            <constraint firstItem="2Pn-ai-8TH" firstAttribute="top" secondItem="M2C-wk-CBC" secondAttribute="top" constant="12" id="h2F-8A-taD"/>
+                            <constraint firstItem="NMn-8y-GC7" firstAttribute="trailing" secondItem="M2C-wk-CBC" secondAttribute="trailing" id="lJq-2k-BF1"/>
+                            <constraint firstItem="NMn-8y-GC7" firstAttribute="leading" secondItem="M2C-wk-CBC" secondAttribute="leading" id="u8W-mb-tiE"/>
+                            <constraint firstItem="NMn-8y-GC7" firstAttribute="top" secondItem="2Pn-ai-8TH" secondAttribute="bottom" constant="12" id="yLT-Vg-YGm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M2C-wk-CBC"/>
                     </view>
                     <navigationItem key="navigationItem" id="guw-6d-bn2">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="2Pn-ai-8TH">
-                            <rect key="frame" x="99.5" y="7" width="176" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="All"/>
-                                <segment title="Bought"/>
-                                <segment title="Sold"/>
-                            </segments>
-                            <color key="tintColor" red="0.90980392156862744" green="0.12941176470588234" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="indexChanged:" destination="ClH-pY-vJX" eventType="valueChanged" id="nLk-4M-CYR"/>
-                            </connections>
-                        </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="productsTableView" destination="NMn-8y-GC7" id="6hu-Om-9FK"/>

@@ -6,6 +6,8 @@
 //  Copyright © 2019 RocketInc. All rights reserved.
 //
 
+//TODO: resize image gotten from DB like instagram
+
 import UIKit
 import Parse
 
@@ -15,10 +17,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var productsTableView: UITableView!
     
     var products: [Product] = []
-    var boughtProducts: [Product] = []
-    var soldProducts: [Product] = []
     let refreshControl = UIRefreshControl()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,17 +45,14 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         if type == 0 {
-            getBought()
-            getSold()
-            products = boughtProducts + soldProducts
+            getBoughtAndSold()
         }
         else if type == 1 {
             getBought()
-            products = boughtProducts
+           
         }
         else if type == 2 {
             getSold()
-            products = soldProducts
         }
     }
     
@@ -68,9 +64,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 print("ERROR: \(error.localizedDescription)")
             } else {
                 let currUser = user!
-                print(currUser.purchasedProducts)
                 self.products = currUser.purchasedProducts ?? []
-                //self.boughtProducts = currUser.purchasedProducts ?? []
+                
+                print("Bought: \(self.products.count)")
+                
                 self.productsTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
@@ -79,11 +76,40 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func getSold() {
-        TransactionsDBHelper.getRecentSoldProducts(limit: 40) { (error, products) in
+        TransactionsDBHelper.getRecentSoldProducts(limit: 40) { (error, _products) in
             if let error = error {
                 print(error.localizedDescription)
-            } else if products != nil {
-                self.soldProducts = products ?? []
+            } else if _products != nil {
+                self.products = _products ?? []
+                
+                print("Sold: \(self.products.count)")
+                
+                self.productsTableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
+    
+    func getBoughtAndSold(){
+        UserDBHelper.getUser(email: (PFUser.current()?.email)!) { (error, user) in
+            if let error = error {
+                print("ERROR: \(error.localizedDescription)")
+            } else {
+                let currUser = user!
+                self.products = currUser.purchasedProducts ?? []
+                
+                TransactionsDBHelper.getRecentSoldProducts(limit: 40) { (error, _products) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else if _products != nil {
+                        self.products += (_products ?? [])
+                        
+                        print("Bought and Sold: \(self.products.count)")
+                        
+                        self.productsTableView.reloadData()
+                        self.refreshControl.endRefreshing()
+                    }
+                }
             }
         }
     }

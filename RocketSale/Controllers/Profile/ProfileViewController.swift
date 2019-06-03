@@ -21,32 +21,13 @@ class ProfileViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUserInformation()
+        
+        makeProfilePicRounded()
+        getUserFields()
     }
     
-    func makeDummyUser(){
-        UserDBHelper.createNewUser(email: "ryan@gmail.com", password: "0123") { (error) in
-            if let error = error {
-                print("ERROR: \(error.localizedDescription)")
-            }
-            else {
-                print("User created")
-            }
-        }
-    }
     
-    func fillDummyUser() {
-        UserDBHelper.initializeUserAccountInformation(email: "ryan@gmail.com", phoneNumber: "4081234567", description: "Tester", interests: ["food", "skateboarding"], profilePicture: nil) { (error) in
-            if let error = error {
-                 print("ERROR: \(error.localizedDescription)")
-            }
-            else{
-                print("User info updated")
-            }
-        }
-    }
-    
-    func updateUserInformation() {
+    func getUserFields() {
         UserDBHelper.getUser(email: (PFUser.current()?.email)!) { (error, user) in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
@@ -82,15 +63,23 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    //TODO: Add identifier to LoginViewController
+   
     @IBAction func onLogout(_ sender: Any) {
-        //User.logOut()
+        User.logOut()
         let main = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = main.instantiateViewController(withIdentifier: "LoginViewController")
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.window?.rootViewController = loginVC
     }
     
-    //TODO: Add default profile picture image to Xcode
+    
+    //MARK: Style methods
+    func makeProfilePicRounded() {
+        ProfilePic.layer.borderWidth = 1
+        ProfilePic.layer.masksToBounds = false
+        ProfilePic.layer.borderColor = UIColor.black.cgColor
+        ProfilePic.layer.cornerRadius = ProfilePic.frame.height/2
+        ProfilePic.clipsToBounds = true
+    }
     
 }

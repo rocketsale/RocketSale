@@ -176,7 +176,7 @@
         <scene sceneID="ORD-FD-6qH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZVJ-Gn-LAm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="X16-Ch-JxK"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="32favorites" id="X16-Ch-JxK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YIR-Ec-dMk">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -192,4 +192,7 @@
             <point key="canvasLocation" x="918" y="2669"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="32favorites" width="32" height="32"/>
+    </resources>
 </document>

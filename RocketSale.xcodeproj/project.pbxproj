@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		090F8EE0228BD68D007325B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8EDF228BD68D007325B9 /* AppDelegate.swift */; };
 		090F8EE5228BD68D007325B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE3228BD68D007325B9 /* Main.storyboard */; };
-		090F8EE7228BD692007325B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE6228BD692007325B9 /* Assets.xcassets */; };
 		090F8EEA228BD692007325B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE8228BD692007325B9 /* LaunchScreen.storyboard */; };
 		090F8EF5228BD692007325B9 /* RocketSaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8EF4228BD692007325B9 /* RocketSaleTests.swift */; };
 		090F8F00228BD692007325B9 /* RocketSaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8EFF228BD692007325B9 /* RocketSaleUITests.swift */; };
@@ -36,9 +35,18 @@
 		090F8F83228BF002007325B9 /* BaseDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F82228BF002007325B9 /* BaseDB.swift */; };
 		090F8F85228BF014007325B9 /* ProductDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F84228BF014007325B9 /* ProductDB.swift */; };
 		090F8F87228BF024007325B9 /* TransactionsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F86228BF024007325B9 /* TransactionsDB.swift */; };
-		090F8F89228BF03A007325B9 /* FavoritesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F88228BF03A007325B9 /* FavoritesDB.swift */; };
 		090F8F90228BFB9B007325B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F8F228BFB9B007325B9 /* Constants.swift */; };
+		090F8F92228E4B0E007325B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F91228E4B0E007325B9 /* User.swift */; };
+		090F8F94228E5764007325B9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F93228E5764007325B9 /* Product.swift */; };
+		090F8F9622911CE5007325B9 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F9522911CE5007325B9 /* ProductCell.swift */; };
+		090F8F982291382C007325B9 /* FavoritesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F8F972291382C007325B9 /* FavoritesDB.swift */; };
+		091CF71122A31C3F00D215D2 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091CF71022A31C3F00D215D2 /* BaseAlertController.swift */; };
+		09329AB722A0F5B500B5CC54 /* StyleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329AB622A0F5B500B5CC54 /* StyleHelpers.swift */; };
+		443FA77222A4C163007E69A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE6228BD692007325B9 /* Assets.xcassets */; };
 		5087F20058D6635A0874A0AE /* Pods_RocketSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB391F459AD892B929DA1EF8 /* Pods_RocketSale.framework */; };
+		544BF7B322A38D3B00A5FEE7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BF7B222A38D3B00A5FEE7 /* EditProfileViewController.swift */; };
+		5491FC0E229DB22E00530233 /* TransactionsProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5491FC0D229DB22E00530233 /* TransactionsProductCell.swift */; };
+		54B2D326229CC714007A7D84 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2D325229CC714007A7D84 /* FavoritesCell.swift */; };
 		75878BFC3A70399F7C85D71B /* Pods_RocketSaleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDCCA2A77776497000E2A0C4 /* Pods_RocketSaleTests.framework */; };
 		97FA4875EE353EFE7A9FC8D5 /* Pods_RocketSaleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6112ABFB2FB7A67ECB1680E /* Pods_RocketSaleUITests.framework */; };
 /* End PBXBuildFile section */
@@ -96,9 +104,17 @@
 		090F8F82228BF002007325B9 /* BaseDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDB.swift; sourceTree = "<group>"; };
 		090F8F84228BF014007325B9 /* ProductDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDB.swift; sourceTree = "<group>"; };
 		090F8F86228BF024007325B9 /* TransactionsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDB.swift; sourceTree = "<group>"; };
-		090F8F88228BF03A007325B9 /* FavoritesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDB.swift; sourceTree = "<group>"; };
 		090F8F8F228BFB9B007325B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		090F8F91228E4B0E007325B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		090F8F93228E5764007325B9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		090F8F9522911CE5007325B9 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		090F8F972291382C007325B9 /* FavoritesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDB.swift; sourceTree = "<group>"; };
+		091CF71022A31C3F00D215D2 /* BaseAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlertController.swift; sourceTree = "<group>"; };
+		09329AB622A0F5B500B5CC54 /* StyleHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleHelpers.swift; sourceTree = "<group>"; };
 		32A306AB73161D1B3122D270 /* Pods-RocketSaleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		544BF7B222A38D3B00A5FEE7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		5491FC0D229DB22E00530233 /* TransactionsProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsProductCell.swift; sourceTree = "<group>"; };
+		54B2D325229CC714007A7D84 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		8A92028849C59BA7C9D69CFD /* Pods-RocketSaleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleTests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleTests/Pods-RocketSaleTests.release.xcconfig"; sourceTree = "<group>"; };
 		A0370994583E1C81DEB67504 /* Pods-RocketSaleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.debug.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A16C083B3AA6C5D0C88829F6 /* Pods-RocketSaleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleTests.debug.xcconfig"; path = "Target Support Files/Pods-RocketSaleTests/Pods-RocketSaleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				090F8F63228BE4DC007325B9 /* BaseModel.swift */,
+				090F8F91228E4B0E007325B9 /* User.swift */,
+				090F8F93228E5764007325B9 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				090F8F69228BE54F007325B9 /* BaseView.swift */,
+				091CF71022A31C3F00D215D2 /* BaseAlertController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +231,7 @@
 		090F8F10228BDB2D007325B9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				09329AB522A0F59000B5CC54 /* Styling */,
 				090F8F12228BDB55007325B9 /* Database */,
 				090F8F11228BDB3F007325B9 /* Networking */,
 			);
@@ -232,8 +252,8 @@
 				090F8F82228BF002007325B9 /* BaseDB.swift */,
 				090F8F7E228BEF57007325B9 /* UserDB.swift */,
 				090F8F84228BF014007325B9 /* ProductDB.swift */,
+				090F8F972291382C007325B9 /* FavoritesDB.swift */,
 				090F8F86228BF024007325B9 /* TransactionsDB.swift */,
-				090F8F88228BF03A007325B9 /* FavoritesDB.swift */,
 				090F8F80228BEF66007325B9 /* ProfileDB.swift */,
 			);
 			path = Database;
@@ -256,6 +276,7 @@
 		090F8F26228BE0DC007325B9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				544BF7B122A38D1600A5FEE7 /* EditProfile */,
 				090F8F27228BE0E8007325B9 /* Base */,
 				090F8F2E228BE17A007325B9 /* Signup */,
 				090F8F2F228BE182007325B9 /* AccountInformation */,
@@ -447,6 +468,7 @@
 		090F8F44228BE2EC007325B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				090F8F9522911CE5007325B9 /* ProductCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -489,6 +511,7 @@
 		090F8F50228BE332007325B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5491FC0D229DB22E00530233 /* TransactionsProductCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -517,6 +540,7 @@
 		090F8F58228BE376007325B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54B2D325229CC714007A7D84 /* FavoritesCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -582,6 +606,25 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+
+		544BF7B122A38D1600A5FEE7 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				544BF7B222A38D3B00A5FEE7 /* EditProfileViewController.swift */,
+			);
+			path = EditProfile;
+            sourceTree = "<group>";
+        };
+
+		09329AB522A0F59000B5CC54 /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				09329AB622A0F5B500B5CC54 /* StyleHelpers.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
+
 		6F7F0B2D02112C0731F4EA1D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,8 +759,8 @@
 				090F8F71228BEAE8007325B9 /* Products.storyboard in Resources */,
 				090F8EEA228BD692007325B9 /* LaunchScreen.storyboard in Resources */,
 				090F8F7B228BED7C007325B9 /* Favorites.storyboard in Resources */,
-				090F8EE7228BD692007325B9 /* Assets.xcassets in Resources */,
 				090F8EE5228BD68D007325B9 /* Main.storyboard in Resources */,
+				443FA77222A4C163007E69A3 /* Assets.xcassets in Resources */,
 				090F8F7D228BEDA8007325B9 /* Profile.storyboard in Resources */,
 				090F8F79228BECDF007325B9 /* Transactions.storyboard in Resources */,
 			);
@@ -793,6 +836,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RocketSale/Pods-RocketSale-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 			);
@@ -800,6 +845,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 			);
@@ -849,16 +896,24 @@
 				090F8F81228BEF66007325B9 /* ProfileDB.swift in Sources */,
 				090F8F4E228BE326007325B9 /* DetailedProductViewController.swift in Sources */,
 				090F8F7F228BEF57007325B9 /* UserDB.swift in Sources */,
+				091CF71122A31C3F00D215D2 /* BaseAlertController.swift in Sources */,
 				090F8F29228BE0FF007325B9 /* BaseViewController.swift in Sources */,
+				09329AB722A0F5B500B5CC54 /* StyleHelpers.swift in Sources */,
 				090F8F5A228BE385007325B9 /* FavoritesViewController.swift in Sources */,
 				090F8F42228BE2D9007325B9 /* LoginViewController.swift in Sources */,
 				090F8F83228BF002007325B9 /* BaseDB.swift in Sources */,
 				090F8F4A228BE311007325B9 /* ProfileViewController.swift in Sources */,
-				090F8F89228BF03A007325B9 /* FavoritesDB.swift in Sources */,
+				090F8F9622911CE5007325B9 /* ProductCell.swift in Sources */,
+				090F8F94228E5764007325B9 /* Product.swift in Sources */,
+				54B2D326229CC714007A7D84 /* FavoritesCell.swift in Sources */,
+				544BF7B322A38D3B00A5FEE7 /* EditProfileViewController.swift in Sources */,
 				090F8F6A228BE54F007325B9 /* BaseView.swift in Sources */,
 				090F8F46228BE2F8007325B9 /* ProductFeedViewController.swift in Sources */,
+				090F8F982291382C007325B9 /* FavoritesDB.swift in Sources */,
 				090F8F85228BF014007325B9 /* ProductDB.swift in Sources */,
+				5491FC0E229DB22E00530233 /* TransactionsProductCell.swift in Sources */,
 				090F8F3E228BE2BE007325B9 /* AccountInformationViewController.swift in Sources */,
+				090F8F92228E4B0E007325B9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

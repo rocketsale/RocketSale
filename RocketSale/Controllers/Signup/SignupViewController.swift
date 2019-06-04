@@ -15,8 +15,11 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundView(view: signUpButton, option: "default")
 //        ProductDBHelper.createNewProduct(name: "book", blurb: "very entertaining", price: 10.50, picture: nil, tags: nil) {
 //            error in
 //            if let error = error {

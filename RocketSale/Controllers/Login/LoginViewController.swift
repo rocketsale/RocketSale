@@ -13,10 +13,13 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        roundView(view: signInButton, option: "default")
+        roundView(view: createAccountButton, option: "default")
         // Do any additional setup after loading the view.
     }
     

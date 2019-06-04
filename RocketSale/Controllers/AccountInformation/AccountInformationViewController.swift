@@ -17,6 +17,8 @@ class AccountInformationViewController: UIViewController, UIImagePickerControlle
     @IBOutlet weak var interestField: UITextField!
     @IBOutlet weak var profileDescriptionField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var uploadPhotoButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
     
     @IBAction func onConfirm(_ sender: Any) {
         let userInterests = interestField.text?.components(separatedBy: ", ")
@@ -66,5 +68,7 @@ class AccountInformationViewController: UIViewController, UIImagePickerControlle
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.cornerRadius = imageView.frame.height/2
         imageView.clipsToBounds = true
+        roundView(view: uploadPhotoButton, option: "default")
+        roundView(view: confirmButton, option: "default")
     }
 }

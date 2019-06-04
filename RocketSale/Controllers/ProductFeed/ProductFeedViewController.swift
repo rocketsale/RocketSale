@@ -82,11 +82,11 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     
     func setCellFavoritedStatus(favoritedUsers: [User]?, cell: ProductCell) {
         if isProductFavorited(users: favoritedUsers) {
-            cell.favoriteButton.backgroundColor = UIColor.white
-            cell.favoriteButton.setTitleColor(.black, for: .normal)
+            cell.favoriteButton.backgroundColor = UIColor.init(red: 206/256, green: 17/256, blue: 65/256, alpha: 1)
+            cell.favoriteButton.setTitleColor(.white, for: .normal)
             cell.favoriteButton.setTitle("Liked", for: .normal)
         } else {
-            cell.favoriteButton.backgroundColor = UIColor.init(red: 206/256, green: 17/256, blue: 65/256, alpha: 1)
+            cell.favoriteButton.backgroundColor = UIColor.gray
             cell.favoriteButton.setTitleColor(.white, for: .normal)
             cell.favoriteButton.setTitle("Like", for: .normal)
         }

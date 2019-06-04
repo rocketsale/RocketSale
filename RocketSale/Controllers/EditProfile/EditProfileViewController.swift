@@ -51,10 +51,10 @@ class EditProfileViewController: UIViewController {
     
     //MARK: Allow user to update Profile pic??
     @IBAction func onUpdate(_ sender: Any) {
-        updateButton.backgroundColor = UIColor(displayP3Red: 206/255, green: 17/255, blue: 65/255, alpha: 1)
+        updateButton.backgroundColor = UIColor.white
       
         //MARK: button not changing text color
-        updateButton.setTitleColor(.white, for: .normal)
+        updateButton.setTitleColor(.black, for: .normal)
         
         let number = phoneNumTextField.text
         let bio = bioTextField.text
@@ -68,7 +68,7 @@ class EditProfileViewController: UIViewController {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline:.now() + 0.60, execute: {
+        DispatchQueue.main.asyncAfter(deadline:.now() + 0.45, execute: {
             self.performSegue(withIdentifier:"editProfileToProfile", sender: self)
         })
     }

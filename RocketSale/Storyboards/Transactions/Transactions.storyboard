@@ -31,69 +31,46 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kaa-pN-r53">
                                                     <rect key="frame" x="16" y="8" width="90" height="90"/>
-                                                    <color key="backgroundColor" red="0.90980392160000001" green="0.12941176469999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="Qvg-Qj-JGy"/>
                                                         <constraint firstAttribute="width" constant="90" id="VfQ-Nr-cFU"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsv-2X-W8i">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsv-2X-W8i">
                                                     <rect key="frame" x="114" y="19" width="117" height="21"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Product Name">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.97476895453125711" green="1" blue="0.98922146657076471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r2-jx-bOD">
-                                                    <rect key="frame" x="114" y="48" width="180" height="17.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r2-jx-bOD">
+                                                    <rect key="frame" x="114" y="48" width="180" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="180" id="cV8-DH-VGY"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Product description">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.97476895453125711" green="1" blue="0.98922146657076471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUD-fo-TmA">
-                                                    <rect key="frame" x="306" y="19" width="46" height="18"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="$10.22">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.97476895453125711" green="1" blue="0.98922146657076471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10.22" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUD-fo-TmA">
+                                                    <rect key="frame" x="307" y="16" width="52" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="pUD-fo-TmA" secondAttribute="trailing" constant="16" id="4Mz-Bg-QeE"/>
                                                 <constraint firstItem="2r2-jx-bOD" firstAttribute="top" secondItem="nsv-2X-W8i" secondAttribute="bottom" constant="8" id="TTn-5I-UeX"/>
                                                 <constraint firstItem="nsv-2X-W8i" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="topMargin" constant="8" id="Zu1-oy-0Ux"/>
-                                                <constraint firstItem="pUD-fo-TmA" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="topMargin" constant="8" id="b5q-Nj-XDa"/>
                                                 <constraint firstItem="2r2-jx-bOD" firstAttribute="leading" secondItem="kaa-pN-r53" secondAttribute="trailing" constant="8" id="cmi-lI-fSP"/>
                                                 <constraint firstItem="kaa-pN-r53" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="top" constant="8" id="fuf-Y6-0fp"/>
                                                 <constraint firstAttribute="bottom" secondItem="kaa-pN-r53" secondAttribute="bottom" constant="8" id="iqs-nW-InR"/>
+                                                <constraint firstItem="pUD-fo-TmA" firstAttribute="top" secondItem="kkg-Gu-BKL" secondAttribute="top" constant="16" id="jwZ-XU-yjL"/>
                                                 <constraint firstItem="nsv-2X-W8i" firstAttribute="leading" secondItem="kaa-pN-r53" secondAttribute="trailing" constant="8" id="mns-K8-ZyB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pUD-fo-TmA" secondAttribute="trailing" constant="8" id="thc-Mk-ZjW"/>
                                                 <constraint firstItem="kaa-pN-r53" firstAttribute="leading" secondItem="kkg-Gu-BKL" secondAttribute="leading" constant="16" id="uyw-N2-K6q"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="blurbLabel" destination="2r2-jx-bOD" id="z8I-7g-DWr"/>
                                             <outlet property="priceLabel" destination="pUD-fo-TmA" id="hc3-w0-1jd"/>
@@ -151,6 +128,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wnU-h9-82Q">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

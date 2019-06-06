@@ -287,6 +287,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="WrG-6c-WvM" firstAttribute="centerX" secondItem="LCN-Fz-Cax" secondAttribute="centerX" id="2iq-WU-vHa"/>
                             <constraint firstItem="Jhe-o1-6f8" firstAttribute="top" secondItem="MjS-Cn-WFP" secondAttribute="bottom" constant="8" id="61K-jJ-lvW"/>
@@ -302,6 +303,9 @@
                             <constraint firstItem="ZPA-Xf-3Ov" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jhe-o1-6f8" secondAttribute="bottom" constant="16" id="ytG-ji-5F5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZPA-Xf-3Ov"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Yhp-m4-LvO" appends="YES" id="oPb-DH-6qE"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="productBlurbLabel" destination="gFx-1I-6L4" id="PYa-8j-uRU"/>
@@ -313,6 +317,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mM8-NX-KW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Yhp-m4-LvO">
+                    <connections>
+                        <action selector="onBackSwipe:" destination="7lR-sg-Inn" id="syL-JR-PiV"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1498.4000000000001" y="4369.5652173913049"/>
         </scene>

@@ -127,18 +127,20 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 //        self.favoriteProducts.remove(at: indexPath.row)
 //        self.favoritesTableView.reloadData()
     }
-
+    @IBAction func unwindToViewController(_ unwindSegue: UIStoryboardSegue) {
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
     
     //TODO: Segue to Ryan Luu's DetailedProductScreen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let clickedCell = sender as! UITableViewCell
-        let indexPath = favoritesTableView.indexPath(for: clickedCell)!
-        let selectedProduct = favoriteProducts[indexPath.row]
-        
-        //let detailedProductVC= segue.destination as! DetailedProductViewController
-        //detailedProductVC.product = selectedProduct
-        
-        favoritesTableView.deselectRow(at: indexPath, animated: true)
+        if let navController = segue.destination as? UINavigationController {
+            let detailVC = navController.topViewController as! DetailedProductViewController
+            let senderCell = sender as! UITableViewCell
+            let indexPath = favoritesTableView.indexPath(for: senderCell)!
+            let productData = favoriteProducts[indexPath.row]
+            detailVC.product = productData
+        }
     }
     
     

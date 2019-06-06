@@ -13,17 +13,26 @@ import CoreLocation
 class ProductMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    let locationManager = CLLocationManager()
+    
     var products: [Product]?
     var annotations = [ProductAnnotation]()
-    
-    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Product Map";
         
-        //TODO: refactor
-        // Ask for Authorisation from the User.
+        initLocationManager()
+        addProductAnnotations()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        centerMapOnLocation(location: locValue)
+    }
+    
+    //MARK: Mapview helper methods
+    func initLocationManager() {
         self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
@@ -34,12 +43,6 @@ class ProductMapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        addProductAnnotations()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        centerMapOnLocation(location: locValue)
     }
     
     func centerMapOnLocation(location: CLLocationCoordinate2D) {

@@ -78,3 +78,99 @@ The application connects buyers and sellers located in population dense areas (c
 
 ## Wireframes
 ![](https://i.imgur.com/KOjQfIE.jpg)
+
+## Schema
+
+### Models
+
+#### User
+
+| Property      | Type          | Description  |
+| --- | --- | --- |
+| phoneNUmber      | String | User's phone number |
+| profilePicture      | PFFileObject     |   User's profile picture |
+| interests | [Strings]      |    User's interests used for buyers to find like-minded sellers |
+| numberOfItemsBought | Int | Number of products user has bought |
+| numberOfItemsUpForSale | Int | Number of products user has listed that are available for purchase |
+| numberOfItemsSold | Int | Number of products user has sold |
+| favoritedProducts | [Product] | Products user has "liked" on the feed |
+| purchasedProducts | [Product] | Products user had bought |
+
+#### Product
+
+| Property      | Type          | Description  |
+| ------------- | ------------- | ----- |
+| name      | String | User's phone number |
+| blurb      | String     |   Name of the product given by seller |
+| price | Double      |    Price of the product set by seller |
+| picture | PFFileObject | Picture of the product uploaded by seller |
+| tags | [String] | Tags assigned to the product allowing users' to search for it by tag |
+| seller | User | User who listed the product for sale|
+| isPurchased | Bool | True if a user has bought the product |
+| purchaser | User | User who bought the product |
+| favoritedUser | [User] | Users who have "liked" the product on the feed |
+| latitude | Double | Latitude coordinate of the product |
+| longitude | Double | Longitude coordinate of the product |
+
+### Networking
+
+#### List of network requests by screen
+
+* Login Screen
+    * (Read/GET) Log in user
+    ![](https://i.imgur.com/NseuxzM.png)
+* Signup Screen
+    * (Create/POST) Signup new user
+* Home Feed Screen
+    * (find/READ) Query all recent products available to purchase
+    ![](https://i.imgur.com/9JvFxV0.png)
+    * (find/READ) Query all products with tags specified by user
+    * (Update/PUT) "Like" product
+* List Product Screen
+     * (Create/POST) List product for sale
+     ![](https://i.imgur.com/ie7t4Rd.png)
+* Detailed Product Screen
+    * (Update/PUT) Buy product
+* Transactions Screen
+    * (find/READ) Query all products user has bought
+    * (find/READ) Query all products user has sold
+* Favorites Screen
+    * (find/READ) Query all products user has "liked"
+    * (Update/PUT) "Unlike" product
+* Profile Screen
+    * (Read/GET) Query current user
+* Edit Profile Screen
+    * (Update/PUT) Edit user profile information
+
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+Signing Up A New User
+
+<img src='http://g.recordit.co/pa1T9gxWlC.gif' title='Edit Profile Walkthrough' width='' alt='Edit Profile Walkthrough' />
+
+Home Feed
+
+<img src='http://g.recordit.co/ugprygz0H6.gif' title='Home Feed/Search Walkthrough' width='' alt='Home Feed/Search Walkthrough' />
+
+Product Map
+
+<img src='http://g.recordit.co/dw2P5OMbIj.gif' title='Map Walkthrough' width='' alt='Map Walkthrough' />
+
+Buying a Product
+
+<img src='http://g.recordit.co/jL43Itv7Yu.gif' title='Buy Product Walkthrough' width='' alt='Buy Product Walkthrough' />
+
+Liking a Product
+
+<img src='http://g.recordit.co/WTcKAHb5Kt.gif' title='Favorite Product Walkthrough' width='' alt='Favorite Product Walkthrough' />
+
+Editing User Information
+
+<img src='http://g.recordit.co/xta85oUe2x.gif' title='Edit Profile Walkthrough' width='' alt='Edit Profile Walkthrough' />
+
+## Presentation
+
+Here's our group's [presentation](https://docs.google.com/presentation/d/1K4hWnZvDNBNhtFP86CC2isnme1pPXQQFDEsXKq6Rmbc/edit?usp=sharing) for CodePath at UCI's Demo Day 6/8/19.

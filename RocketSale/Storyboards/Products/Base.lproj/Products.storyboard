@@ -10,6 +10,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Product Map View Controller-->
+        <scene sceneID="YgJ-Mx-1aK">
+            <objects>
+                <viewController id="b9h-CM-QvA" customClass="ProductMapViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1xr-Qn-oeD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="isD-wD-dhL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RiY-jG-X6h" firstAttribute="trailing" secondItem="isD-wD-dhL" secondAttribute="trailing" id="3OU-r2-vfs"/>
+                            <constraint firstItem="RiY-jG-X6h" firstAttribute="bottom" secondItem="isD-wD-dhL" secondAttribute="bottom" id="AfX-oT-8we"/>
+                            <constraint firstItem="isD-wD-dhL" firstAttribute="leading" secondItem="RiY-jG-X6h" secondAttribute="leading" id="hR8-cf-AgG"/>
+                            <constraint firstItem="isD-wD-dhL" firstAttribute="top" secondItem="RiY-jG-X6h" secondAttribute="top" id="kVx-dX-Dta"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RiY-jG-X6h"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="isD-wD-dhL" id="9Pe-zN-H8l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnp-9u-jFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2694" y="3520"/>
+        </scene>
         <!--Product Feed View Controller-->
         <scene sceneID="wxd-C6-dXm">
             <objects>
@@ -155,6 +184,12 @@
                         <viewLayoutGuide key="safeArea" id="aC5-Jp-J1i"/>
                     </view>
                     <navigationItem key="navigationItem" id="f2B-jw-obG">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="rkg-xg-9ai">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="b9h-CM-QvA" kind="show" identifier="mapSegue" id="pRX-JR-iYz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Sell" id="kgs-g4-OL8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

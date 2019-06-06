@@ -67,6 +67,11 @@ class ProfileViewController: UIViewController {
     @IBAction func onLogout(_ sender: Any) {
         User.logOut()
         self.dismiss(animated: true, completion: nil)
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = main.instantiateViewController(withIdentifier: "LoginViewController")
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.window?.rootViewController = loginVC
     }
     
     

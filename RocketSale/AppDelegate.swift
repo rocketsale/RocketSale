@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://rocket-sale.herokuapp.com/parse"
             })
         )
+        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let homeTabBarController = main.instantiateViewController(withIdentifier: "HomeTabBarController")
+            window?.rootViewController = homeTabBarController
+        }
         return true
     }
 

@@ -55,7 +55,16 @@ class SignupViewController: UIViewController {
             user.signUpInBackground { (success, error) in
                 if success{
                     self.signUpNewUser(self.usernameField.text!, userPassword: self.passwordField.text!)
-                    self.performSegue(withIdentifier: "loginToAccountInfo", sender: nil)
+                    PFUser.logInWithUsername(inBackground: self.usernameField.text!, password: self.passwordField.text!) { (user, error) in
+                        if user != nil {
+                            self.performSegue(withIdentifier: "loginToAccountInfo", sender: nil)
+                        } else {
+                            let err = UIAlertController(title: "Error", message: "Error in transition from signup to home.", preferredStyle: .alert)
+                            err.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                            self.present(err, animated:true)
+                        }
+                    }
+                    //self.performSegue(withIdentifier: "loginToAccountInfo", sender: nil)
                 } else {
                     print("Error: \(error?.localizedDescription)")
                 }

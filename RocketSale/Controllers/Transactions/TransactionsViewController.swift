@@ -27,7 +27,13 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         productsTableView.dataSource = self
         setupRefreshControl()
         
-        getProducts(_type: 0)
+        getProducts(_type: segmentedControl.selectedSegmentIndex)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+        getProducts(_type: segmentedControl.selectedSegmentIndex)
     }
     
     
@@ -66,8 +72,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 let currUser = user!
                 self.products = currUser.purchasedProducts ?? []
                 
-                print("Bought: \(self.products.count)")
-                
                 self.productsTableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
@@ -81,8 +85,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 print(error.localizedDescription)
             } else if _products != nil {
                 self.products = _products ?? []
-                
-                print("Sold: \(self.products.count)")
                 
                 self.productsTableView.reloadData()
                 self.refreshControl.endRefreshing()
@@ -103,8 +105,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                         print(error.localizedDescription)
                     } else if _products != nil {
                         self.products += (_products ?? [])
-                        
-                        print("Bought and Sold: \(self.products.count)")
                         
                         self.productsTableView.reloadData()
                         self.refreshControl.endRefreshing()

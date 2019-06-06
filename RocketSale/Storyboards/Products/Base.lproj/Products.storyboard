@@ -10,7 +10,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Product Feed View Controller-->
+        <!--Product Map View Controller-->
+        <scene sceneID="YgJ-Mx-1aK">
+            <objects>
+                <viewController id="b9h-CM-QvA" customClass="ProductMapViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1xr-Qn-oeD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="isD-wD-dhL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RiY-jG-X6h" firstAttribute="trailing" secondItem="isD-wD-dhL" secondAttribute="trailing" id="3OU-r2-vfs"/>
+                            <constraint firstItem="RiY-jG-X6h" firstAttribute="bottom" secondItem="isD-wD-dhL" secondAttribute="bottom" id="AfX-oT-8we"/>
+                            <constraint firstItem="isD-wD-dhL" firstAttribute="leading" secondItem="RiY-jG-X6h" secondAttribute="leading" id="hR8-cf-AgG"/>
+                            <constraint firstItem="isD-wD-dhL" firstAttribute="top" secondItem="RiY-jG-X6h" secondAttribute="top" id="kVx-dX-Dta"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RiY-jG-X6h"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="isD-wD-dhL" id="9Pe-zN-H8l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnp-9u-jFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2694" y="3520"/>
+        </scene>
+        <!--Product Feed-->
         <scene sceneID="wxd-C6-dXm">
             <objects>
                 <viewController id="s3J-vg-KCR" customClass="ProductFeedViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
@@ -154,7 +184,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aC5-Jp-J1i"/>
                     </view>
-                    <navigationItem key="navigationItem" id="f2B-jw-obG">
+                    <navigationItem key="navigationItem" title="Product Feed" id="f2B-jw-obG">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="rkg-xg-9ai">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="b9h-CM-QvA" kind="show" identifier="mapSegue" id="pRX-JR-iYz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Sell" id="kgs-g4-OL8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -251,6 +287,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="WrG-6c-WvM" firstAttribute="centerX" secondItem="LCN-Fz-Cax" secondAttribute="centerX" id="2iq-WU-vHa"/>
                             <constraint firstItem="Jhe-o1-6f8" firstAttribute="top" secondItem="MjS-Cn-WFP" secondAttribute="bottom" constant="8" id="61K-jJ-lvW"/>
@@ -266,6 +303,9 @@
                             <constraint firstItem="ZPA-Xf-3Ov" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jhe-o1-6f8" secondAttribute="bottom" constant="16" id="ytG-ji-5F5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZPA-Xf-3Ov"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Yhp-m4-LvO" appends="YES" id="oPb-DH-6qE"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="productBlurbLabel" destination="gFx-1I-6L4" id="PYa-8j-uRU"/>
@@ -277,10 +317,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mM8-NX-KW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Yhp-m4-LvO">
+                    <connections>
+                        <action selector="onBackSwipe:" destination="7lR-sg-Inn" id="syL-JR-PiV"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1498.4000000000001" y="4369.5652173913049"/>
         </scene>
-        <!--Sell Item View Controller-->
+        <!--Sell Item-->
         <scene sceneID="zaB-5R-uMJ">
             <objects>
                 <viewController id="NPn-l3-Pml" customClass="SellItemViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
@@ -380,7 +425,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jgx-9Z-DAy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0b0-CC-QRj">
+                    <navigationItem key="navigationItem" title="Sell Item" id="0b0-CC-QRj">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="f8w-Jx-hHP">
                             <connections>
                                 <action selector="onCancelTap:" destination="NPn-l3-Pml" id="Wxm-Qu-CPS"/>
@@ -419,6 +464,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -437,6 +485,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bix-Kd-tnQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -452,4 +506,5 @@
         <image name="32home" width="32" height="32"/>
         <image name="default-placeholder" width="1500" height="1500"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

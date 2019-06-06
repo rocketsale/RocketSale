@@ -19,6 +19,8 @@ class ProductDBHelper {
         newProduct.price = price
         newProduct.picture = picture
         newProduct.tags = tags
+        newProduct.latitude = 37.7873589 + Double.random(in: 0..<1)
+        newProduct.longitude = -122.408227 + Double.random(in: 0..<1)
         if let user = PFUser.current() as! User? {
             newProduct.seller = user
         }

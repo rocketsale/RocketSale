@@ -21,6 +21,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Product Feed";
         productTableView.delegate = self
         productTableView.dataSource = self
         setStyles()

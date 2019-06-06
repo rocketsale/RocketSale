@@ -20,6 +20,9 @@ class ProductMapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Product Map";
+        
+        //TODO: refactor
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         

@@ -17,7 +17,7 @@ class TransactionsProductCell: UITableViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        roundView(view: productImageView, option: "default")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

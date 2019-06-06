@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites View Controller-->
+        <!--Favorites-->
         <scene sceneID="BgC-bC-W0Q">
             <objects>
                 <viewController id="3eH-uS-dr6" customClass="FavoritesViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,7 +140,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N3P-km-f7h"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aE6-vF-AGl"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="aE6-vF-AGl"/>
                     <connections>
                         <outlet property="favoritesTableView" destination="EjR-XQ-NmD" id="fbg-UO-yPL"/>
                     </connections>
@@ -159,6 +159,12 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

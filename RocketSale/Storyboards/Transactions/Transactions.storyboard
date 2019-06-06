@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transactions View Controller-->
+        <!--Transactions-->
         <scene sceneID="YJn-gN-1ZP">
             <objects>
                 <viewController id="ClH-pY-vJX" customClass="TransactionsViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,9 +107,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M2C-wk-CBC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="guw-6d-bn2">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Transactions" id="guw-6d-bn2"/>
                     <connections>
                         <outlet property="productsTableView" destination="NMn-8y-GC7" id="6hu-Om-9FK"/>
                         <outlet property="segmentedControl" destination="2Pn-ai-8TH" id="35A-Qq-i4c"/>
@@ -129,6 +127,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

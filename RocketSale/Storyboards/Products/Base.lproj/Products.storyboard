@@ -76,7 +76,7 @@
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blurb" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-27-cFT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blurb" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nww-27-cFT">
                                                     <rect key="frame" x="114" y="40" width="180" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="180" id="UM3-E6-hSl"/>
@@ -317,7 +317,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mM8-NX-KW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="Yhp-m4-LvO">
+                <swipeGestureRecognizer direction="right" id="Yhp-m4-LvO">
                     <connections>
                         <action selector="onBackSwipe:" destination="7lR-sg-Inn" id="syL-JR-PiV"/>
                     </connections>

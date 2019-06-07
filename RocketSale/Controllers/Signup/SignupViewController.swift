@@ -31,6 +31,8 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: Any) {
+        animateButtonTap(btn: signUpButton)
+        
         var msg = ""
         if usernameField.text == ""{
             msg = "Please enter a username."
@@ -70,6 +72,10 @@ class SignupViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func onExitSwipe(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func callError(_ msg: String) {

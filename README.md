@@ -50,7 +50,7 @@ The application connects buyers and sellers located in population dense areas (c
 * Transaction list screen
    * The transaction lists screen allows users view pending/bought items and separately view pending/sold items.
 * Detailed Buy Screen
-   *User views a list of items they have bought or are in the process of buying.
+   * User views a list of items they have bought or are in the process of buying.
 * Detailed Sell Screen
    * User views a list of items they have sold or are in the process of selling.
 * Favorites screen

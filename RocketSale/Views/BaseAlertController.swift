@@ -21,4 +21,15 @@ class BaseAlertController: UIAlertController {
         viewController.present(alertController, animated: true, completion: nil)
         return alertController
     }
+    
+    static func displayDisappearingMessage(msg: String, timer: Double, viewController: UIViewController) -> UIAlertController {
+        let alertController = UIAlertController(title: msg, message:
+            nil, preferredStyle: .alert)
+        viewController.present(alertController,animated:true,completion:{Timer.scheduledTimer(withTimeInterval: TimeInterval(timer), repeats:false, block: {_ in
+            viewController.dismiss(animated: true, completion: nil)
+            alertController.dismiss(animated: true, completion: nil)
+        })})
+        
+        return alertController
+    }
 }

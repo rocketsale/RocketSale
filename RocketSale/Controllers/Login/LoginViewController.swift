@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignIn(_ sender: Any) {
+        animateButtonTap(btn: signInButton)
+        
         let username = usernameField.text!
         let password = passwordField.text!
         

@@ -75,4 +75,16 @@ class DetailedProductViewController: UIViewController {
         animateButtonTap(btn: productBuyButton)
         purchaseProduct(product: product)
     }
+    
+    @IBAction func onExitTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onExitSwipe(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onBackSwipe(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }

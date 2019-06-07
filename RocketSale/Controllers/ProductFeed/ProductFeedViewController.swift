@@ -21,6 +21,7 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Product Feed";
         productTableView.delegate = self
         productTableView.dataSource = self
         setStyles()
@@ -192,6 +193,17 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
             //Passes data to detail view
             let detailedProductFeedVC = segue.destination as! DetailedProductViewController
             detailedProductFeedVC.product = productData
+        }
+        
+        else if segue.identifier == "mapSegue" {
+            //Passes data to detail view
+            let productMapVC = segue.destination as! ProductMapViewController
+            productMapVC.products = products
+        }
+        
+        else if segue.identifier == "feedToSwiperSegue" {
+            let productSwiperVC = segue.destination as! ProductSwiperViewController
+            productSwiperVC.products = products
         }
     }
 }

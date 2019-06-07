@@ -19,7 +19,7 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "Edit Profile Page";
         updateTextFields()
         roundButtonCorners()
     }
@@ -51,11 +51,6 @@ class EditProfileViewController: UIViewController {
     
     //MARK: Allow user to update Profile pic??
     @IBAction func onUpdate(_ sender: Any) {
-        updateButton.backgroundColor = UIColor.white
-      
-        //MARK: button not changing text color
-        updateButton.setTitleColor(.black, for: .normal)
-        
         let number = phoneNumTextField.text
         let bio = bioTextField.text
         
@@ -68,7 +63,8 @@ class EditProfileViewController: UIViewController {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline:.now() + 0.45, execute: {
+        animateButtonTap(btn: updateButton)
+        DispatchQueue.main.asyncAfter(deadline:.now() + 0.2, execute: {
             self.performSegue(withIdentifier:"editProfileToProfile", sender: self)
         })
     }

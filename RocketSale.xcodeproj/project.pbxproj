@@ -44,6 +44,7 @@
 		09329AB722A0F5B500B5CC54 /* StyleHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09329AB622A0F5B500B5CC54 /* StyleHelpers.swift */; };
 		09E0727F22A8A7270050B2C3 /* ProductMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E0727E22A8A7270050B2C3 /* ProductMapViewController.swift */; };
 		09E0728122A8B0D10050B2C3 /* ProductAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E0728022A8B0D10050B2C3 /* ProductAnnotation.swift */; };
+		09E0728922AA36B90050B2C3 /* ProductSwiperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E0728822AA36B90050B2C3 /* ProductSwiperViewController.swift */; };
 		443FA77222A4C163007E69A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 090F8EE6228BD692007325B9 /* Assets.xcassets */; };
 		5087F20058D6635A0874A0AE /* Pods_RocketSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB391F459AD892B929DA1EF8 /* Pods_RocketSale.framework */; };
 		544BF7B322A38D3B00A5FEE7 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BF7B222A38D3B00A5FEE7 /* EditProfileViewController.swift */; };
@@ -115,6 +116,7 @@
 		09329AB622A0F5B500B5CC54 /* StyleHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleHelpers.swift; sourceTree = "<group>"; };
 		09E0727E22A8A7270050B2C3 /* ProductMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapViewController.swift; sourceTree = "<group>"; };
 		09E0728022A8B0D10050B2C3 /* ProductAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAnnotation.swift; sourceTree = "<group>"; };
+		09E0728822AA36B90050B2C3 /* ProductSwiperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSwiperViewController.swift; sourceTree = "<group>"; };
 		32A306AB73161D1B3122D270 /* Pods-RocketSaleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RocketSaleUITests.release.xcconfig"; path = "Target Support Files/Pods-RocketSaleUITests/Pods-RocketSaleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		544BF7B222A38D3B00A5FEE7 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		5491FC0D229DB22E00530233 /* TransactionsProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsProductCell.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		090F8F26228BE0DC007325B9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09E0728722AA369F0050B2C3 /* ProductSwiper */,
 				09E0727D22A8A7060050B2C3 /* ProductMap */,
 				544BF7B122A38D1600A5FEE7 /* EditProfile */,
 				090F8F27228BE0E8007325B9 /* Base */,
@@ -628,6 +631,14 @@
 			path = ProductMap;
 			sourceTree = "<group>";
 		};
+		09E0728722AA369F0050B2C3 /* ProductSwiper */ = {
+			isa = PBXGroup;
+			children = (
+				09E0728822AA36B90050B2C3 /* ProductSwiperViewController.swift */,
+			);
+			path = ProductSwiper;
+			sourceTree = "<group>";
+		};
 		544BF7B122A38D1600A5FEE7 /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,7 +861,9 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -859,7 +872,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -898,6 +913,7 @@
 				090F8F3A228BE299007325B9 /* SignupViewController.swift in Sources */,
 				090F8F90228BFB9B007325B9 /* Constants.swift in Sources */,
 				090F8F5E228BE3A9007325B9 /* SellItemViewController.swift in Sources */,
+				09E0728922AA36B90050B2C3 /* ProductSwiperViewController.swift in Sources */,
 				090F8EE0228BD68D007325B9 /* AppDelegate.swift in Sources */,
 				090F8F64228BE4DC007325B9 /* BaseModel.swift in Sources */,
 				090F8F6E228BE5D5007325B9 /* BaseAPIHelper.swift in Sources */,

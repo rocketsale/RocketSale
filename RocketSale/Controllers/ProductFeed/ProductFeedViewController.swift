@@ -195,10 +195,15 @@ class ProductFeedViewController: UIViewController, UITableViewDelegate, UITableV
             detailedProductFeedVC.product = productData
         }
         
-        if segue.identifier == "mapSegue" {
+        else if segue.identifier == "mapSegue" {
             //Passes data to detail view
             let productMapVC = segue.destination as! ProductMapViewController
             productMapVC.products = products
+        }
+        
+        else if segue.identifier == "feedToSwiperSegue" {
+            let productSwiperVC = segue.destination as! ProductSwiperViewController
+            productSwiperVC.products = products
         }
     }
 }

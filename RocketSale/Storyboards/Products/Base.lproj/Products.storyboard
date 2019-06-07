@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnp-9u-jFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2694" y="3520"/>
+            <point key="canvasLocation" x="-3052" y="4551"/>
         </scene>
         <!--Product Feed-->
         <scene sceneID="wxd-C6-dXm">
@@ -185,12 +185,19 @@
                         <viewLayoutGuide key="safeArea" id="aC5-Jp-J1i"/>
                     </view>
                     <navigationItem key="navigationItem" title="Product Feed" id="f2B-jw-obG">
-                        <barButtonItem key="leftBarButtonItem" title="Map" id="rkg-xg-9ai">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="b9h-CM-QvA" kind="show" identifier="mapSegue" id="pRX-JR-iYz"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Map" id="rkg-xg-9ai">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="b9h-CM-QvA" kind="show" identifier="mapSegue" id="pRX-JR-iYz"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Swipe" id="bsy-2m-mfP">
+                                <connections>
+                                    <segue destination="qBL-Gz-67q" kind="presentation" identifier="feedToSwiperSegue" id="nfy-it-Ws1"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Sell" id="kgs-g4-OL8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -323,7 +330,56 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1498.4000000000001" y="4369.5652173913049"/>
+            <point key="canvasLocation" x="-1465" y="4552"/>
+        </scene>
+        <!--Product Swiper View Controller-->
+        <scene sceneID="L99-6h-ypC">
+            <objects>
+                <viewController id="qBL-Gz-67q" customClass="ProductSwiperViewController" customModule="RocketSale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8hq-4w-PNe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJe-PZ-dQg" customClass="KolodaView" customModule="Koloda">
+                                <rect key="frame" x="27.5" y="107" width="320" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="ZUW-sy-d0I"/>
+                                    <constraint firstAttribute="width" constant="320" id="oeg-Um-QpF"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6My-dP-Tel">
+                                <rect key="frame" x="70.5" y="36" width="234" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6My-dP-Tel" firstAttribute="top" secondItem="pbO-Vy-LcN" secondAttribute="top" constant="16" id="53O-8P-1Ff"/>
+                            <constraint firstItem="WJe-PZ-dQg" firstAttribute="top" secondItem="6My-dP-Tel" secondAttribute="bottom" constant="32" id="Fe6-gI-8ni"/>
+                            <constraint firstItem="6My-dP-Tel" firstAttribute="centerX" secondItem="8hq-4w-PNe" secondAttribute="centerX" id="Vol-S9-bZc"/>
+                            <constraint firstItem="WJe-PZ-dQg" firstAttribute="centerX" secondItem="8hq-4w-PNe" secondAttribute="centerX" id="ZM6-nk-v6m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pbO-Vy-LcN"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="CNo-cs-M7C" appends="YES" id="s54-fi-Nt2"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="kolodaView" destination="WJe-PZ-dQg" id="j7I-Em-d61"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tqL-if-sbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="CNo-cs-M7C">
+                    <connections>
+                        <action selector="onExitSwipe:" destination="qBL-Gz-67q" id="ofo-qD-Pxg"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-44" y="4550.3748125937036"/>
         </scene>
         <!--Sell Item-->
         <scene sceneID="zaB-5R-uMJ">

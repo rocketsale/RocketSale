@@ -65,7 +65,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYk-dZ-QP8">
                                 <rect key="frame" x="62.5" y="597.5" width="287" height="30"/>
-                                <color key="backgroundColor" red="0.80784313730000001" green="0.066666666669999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="C8p-s4-Wdu"/>
                                     <constraint firstAttribute="width" secondItem="kYk-dZ-QP8" secondAttribute="height" multiplier="287:30" id="Xa9-mL-TAn"/>
@@ -73,7 +73,7 @@
                                 </constraints>
                                 <color key="tintColor" red="0.80784313730000001" green="0.066666666669999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Don't have an account?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="onSignUp:" destination="CnZ-Qj-giz" eventType="touchUpInside" id="ltt-PO-nLW"/>
@@ -241,6 +241,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="peX-dY-E3z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-78.5" id="0Uj-ge-lza"/>
                             <constraint firstItem="Lf9-6j-kM3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="62.5" id="6UI-a1-r04"/>
@@ -266,6 +267,9 @@
                             <constraint firstItem="XVJ-dd-ftS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-244.5" id="zoP-NS-GwL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BpS-Ch-1Lc" appends="YES" id="k1d-Dk-qRE"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="confirmPasswordField" destination="ctV-KV-Zch" id="aUe-2c-Xvm"/>
@@ -277,6 +281,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="BpS-Ch-1Lc">
+                    <connections>
+                        <action selector="onExitSwipe:" destination="BYZ-38-t0r" id="coI-ab-hT2"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="132" y="114.69265367316342"/>
         </scene>
@@ -548,11 +557,11 @@
         <image name="1024" width="1024" height="1024"/>
         <image name="Word Logo" width="1024" height="1024"/>
         <image name="favorites_icon" width="512" height="512"/>
-        <image name="home_icon" width="102.43035125732422" height="102.43035125732422"/>
+        <image name="home_icon" width="2400" height="2400"/>
         <image name="profile_icon" width="512" height="512"/>
         <image name="transactions_icon" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8y9-Xw-KmQ"/>
+        <segue reference="UKF-jG-fxs"/>
     </inferredMetricsTieBreakers>
 </document>

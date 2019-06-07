@@ -21,6 +21,8 @@ class AccountInformationViewController: UIViewController, UIImagePickerControlle
     @IBOutlet weak var confirmButton: UIButton!
     
     @IBAction func onConfirm(_ sender: Any) {
+        animateButtonTap(btn: confirmButton)
+        
         let userInterests = interestField.text?.components(separatedBy: ", ")
         let imageData = imageView.image!.pngData()
         let file = PFFileObject(data: imageData!)
@@ -37,6 +39,8 @@ class AccountInformationViewController: UIViewController, UIImagePickerControlle
     }
     
     @IBAction func onUploadPhoto(_ sender: Any) {
+        animateButtonTap(btn: uploadPhotoButton)
+        
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true

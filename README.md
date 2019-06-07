@@ -87,7 +87,7 @@ The application connects buyers and sellers located in population dense areas (c
 
 | Property      | Type          | Description  |
 | --- | --- | --- |
-| phoneNUmber      | String | User's phone number |
+| phoneNumber      | String | User's phone number |
 | profilePicture      | PFFileObject     |   User's profile picture |
 | interests | [Strings]      |    User's interests used for buyers to find like-minded sellers |
 | numberOfItemsBought | Int | Number of products user has bought |
@@ -122,9 +122,9 @@ The application connects buyers and sellers located in population dense areas (c
 * Signup Screen
     * (Create/POST) Signup new user
 * Home Feed Screen
-    * (find/READ) Query all recent products available to purchase
+    * (find/GET) Query all recent products available to purchase
     ![](https://i.imgur.com/9JvFxV0.png)
-    * (find/READ) Query all products with tags specified by user
+    * (find/GET) Query all products with tags specified by user
     * (Update/PUT) "Like" product
 * List Product Screen
      * (Create/POST) List product for sale
@@ -132,8 +132,8 @@ The application connects buyers and sellers located in population dense areas (c
 * Detailed Product Screen
     * (Update/PUT) Buy product
 * Transactions Screen
-    * (find/READ) Query all products user has bought
-    * (find/READ) Query all products user has sold
+    * (find/GET) Query all products user has bought
+    * (find/GET) Query all products user has sold
 * Favorites Screen
     * (find/READ) Query all products user has "liked"
     * (Update/PUT) "Unlike" product
@@ -162,6 +162,9 @@ Product Map
 Buying a Product
 
 <img src='http://g.recordit.co/jL43Itv7Yu.gif' title='Buy Product Walkthrough' width='' alt='Buy Product Walkthrough' />
+
+Swiping through Products
+<img src='http://g.recordit.co/6E3Bw4IVcL.gif' title='Swiping Product Walkthrough' width='' alt='Buy Product Walkthrough' />
 
 Liking a Product
 

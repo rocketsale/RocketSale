@@ -10,17 +10,45 @@ import UIKit
 import AlamofireImage
 import Parse
 
-class SellItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SellItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UITextField!
     @IBOutlet weak var productPriceLabel: UITextField!
     @IBOutlet weak var productBlurbLabel: UITextView!
     @IBOutlet weak var productTagsLabel: UITextField!
     
+    var latitude : Double = 0.0
+    var longitude: Double = 0.0
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyles()
         slideFieldsIn()
+        initLocationManager()
+    }
+    
+    //MARK: Mapkit methods
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print(locValue)
+        latitude = locValue.latitude
+        longitude = locValue.longitude
+    }
+    
+    //MARK: Mapview helper methods
+    func initLocationManager() {
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     
     //MARK: Styling methods
@@ -43,7 +71,7 @@ class SellItemViewController: UIViewController, UIImagePickerControllerDelegate,
     
     //MARK: Database interaction methods
     func createNewProductForSale(name: String, blurb: String, price: Double, picture: PFFileObject?, tags: [String]?) {
-        ProductDBHelper.createNewProduct(name: name, blurb: blurb, price: price, picture: picture, tags: tags) {
+        ProductDBHelper.createNewProduct(name: name, blurb: blurb, price: price, picture: picture, tags: tags, latitude: latitude, longitude: longitude) {
             error in
             if let error = error {
                 BaseAlertController.displayErrorMessage(errorMsg: "Error! Could not create new product", viewController: self)

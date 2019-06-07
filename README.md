@@ -164,6 +164,7 @@ Buying a Product
 <img src='http://g.recordit.co/jL43Itv7Yu.gif' title='Buy Product Walkthrough' width='' alt='Buy Product Walkthrough' />
 
 Swiping through Products
+
 <img src='http://g.recordit.co/6E3Bw4IVcL.gif' title='Swiping Product Walkthrough' width='' alt='Buy Product Walkthrough' />
 
 Liking a Product

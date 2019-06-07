@@ -135,7 +135,7 @@ The application connects buyers and sellers located in population dense areas (c
     * (find/GET) Query all products user has bought
     * (find/GET) Query all products user has sold
 * Favorites Screen
-    * (find/READ) Query all products user has "liked"
+    * (find/GET) Query all products user has "liked"
     * (Update/PUT) "Unlike" product
 * Profile Screen
     * (Read/GET) Query current user

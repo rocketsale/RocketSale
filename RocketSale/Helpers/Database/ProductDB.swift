@@ -12,15 +12,15 @@ import Parse
 class ProductDBHelper {
     
     //MARK: Create methods
-    static func createNewProduct(name: String, blurb: String, price: Double, picture: PFFileObject?, tags: [String]?, completion: @escaping ((_ error: Error?) -> Void)) {
+    static func createNewProduct(name: String, blurb: String, price: Double, picture: PFFileObject?, tags: [String]?, latitude: Double, longitude: Double, completion: @escaping ((_ error: Error?) -> Void)) {
         let newProduct = Product()
         newProduct.name = name
         newProduct.blurb = blurb
         newProduct.price = price
         newProduct.picture = picture
         newProduct.tags = tags
-        newProduct.latitude = 37.7873589 + Double.random(in: 0..<1)
-        newProduct.longitude = -122.408227 + Double.random(in: 0..<1)
+        newProduct.latitude = latitude
+        newProduct.longitude = longitude
         if let user = PFUser.current() as! User? {
             newProduct.seller = user
         }
